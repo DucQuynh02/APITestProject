@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import testmain.Menu;
 
-import org.json.simple.*;
+import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
@@ -23,7 +23,7 @@ public class LoginTest {
 		requestPrams.put("password", password);
 	
 		request.header("Content-Type", "application/json");
-		request.body(requestPrams.toJSONString());
+		request.body(requestPrams.toString());
 
 		Response response = request.post("/login");
 		System.out.println("Status request: " + response.getStatusLine());
