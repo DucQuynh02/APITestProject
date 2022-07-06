@@ -74,6 +74,7 @@ public class SignUpTest {
 }
 
 class SignUpData{
+	public static String dataResponse;
 	public String email;
 	public String password;
 	public String re_pass;
@@ -81,4 +82,13 @@ class SignUpData{
 	public String name;
 	public String phone;
 //	File avatar;
+	public static String creRequest(String string, String string2, String string3, String string4, String string5,
+			String string6, String string7) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public static void callAPI(String currentAccount) {
+		// TODO Auto-generated method stub
+		
+	}
 }
