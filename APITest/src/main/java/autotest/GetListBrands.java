@@ -15,7 +15,7 @@ public class GetListBrands extends APINeedTesting {
 	}
 	
 	public void callAPI() {
-		baseURI = BaseURL.BASEURI;
+		baseURI = Constant.BaseURL;
 		Response response = 
 				given()
 				.when()

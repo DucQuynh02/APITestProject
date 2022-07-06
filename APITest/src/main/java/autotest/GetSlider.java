@@ -18,7 +18,7 @@ public class GetSlider extends APINeedTesting {
 	}
 	
 	public void callAPI(String access_token) {
-		baseURI = BaseURL.BASEURI;
+		baseURI = Constant.BaseURL;
 		
 		Response response = 
 				given()

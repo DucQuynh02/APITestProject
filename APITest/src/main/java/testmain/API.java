@@ -1,8 +1,8 @@
 package testmain;
 
 import java.util.Scanner;
-
 import autotest.CreateComment;
+import autotest.ListAuctionStatusTest;
 import autotest.LoginTest;
 import autotest.SignUpTest;
 
@@ -46,9 +46,10 @@ public class API {
 			sc.nextLine();
 			if(luachon==1) {
 				System.out.println("1: Login");
-				LoginTest.Login1();
-				LoginTest.Login2();
-				LoginTest.Login3();
+				LoginTest lgt = new LoginTest();
+				lgt.Login1();
+				lgt.Login2();
+				lgt.Login3();
 				
 			}
 			else if(luachon==2) {	
@@ -66,15 +67,12 @@ public class API {
 				
 			}
 			else if(luachon==6) {
-				System.out.println("6: Get List Auctions By Status");
-				
-				
+				System.out.println("6: Get List Auctions By Status");				
 				 
 			}
 			else if(luachon==7) {
 				System.out.println("7: Get List Auctions By User");
-				
-				
+
 			}
 			else if(luachon==8) {
 				System.out.println("8: Get List Auctions By Type");
@@ -88,7 +86,7 @@ public class API {
 				System.out.println("10: Create Auction ");
 				
 			}
-			if(luachon==11) {
+			else if(luachon==11) {
 				System.out.println("11: Edit Auction ");
 
 
@@ -102,7 +100,8 @@ public class API {
 			}
 			else if(luachon==13) {
 				System.out.println("13: Create Comment");
-				
+				CreateComment crtcmt = new CreateComment();
+				crtcmt.test1();
 			}
 			else if(luachon==14) {
 				System.out.println("14: Get List Comment");
@@ -135,7 +134,7 @@ public class API {
 			else if(luachon==20) {
 				System.out.println("20: Contact Us");
 			}
-			if(luachon==21) {
+			else if(luachon==21) {
 				System.out.println("21: Like Auction");
 				
 			}
@@ -172,15 +171,13 @@ public class API {
 			else if(luachon==29) {
 				System.out.println("29: Search");
 
-
-				
+	
 			}
 			else if(luachon==30) {
 				System.out.println("30: Delete Comment");
 			}
 			else  {
-				System.out.println("Lựa chọn lỗi");
-				
+				System.out.println("Lựa chọn lỗi");			
 			}
 
 	}

@@ -17,6 +17,12 @@
     <version>7.0.0</version>
     
 </dependency>
+
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20220320</version>
+</dependency>
  
 <dependency>
     <groupId>com.googlecode.json-simple</groupId>

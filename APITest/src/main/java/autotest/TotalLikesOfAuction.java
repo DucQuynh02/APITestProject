@@ -18,7 +18,7 @@ public class TotalLikesOfAuction extends APINeedTesting {
 	}
 	
 	public void callAPI(String access_token, String auctionID) {
-		baseURI = BaseURL.BASEURI;
+		baseURI = Constant.BaseURL;
 		
 		Response response = 
 				given()

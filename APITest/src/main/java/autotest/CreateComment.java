@@ -16,7 +16,7 @@ public class CreateComment extends APINeedTesting{
 	}
 	
 	public void callAPI(String currentEmail, String currentPassword, String request,String auctionsID) {
-		baseURI = BaseURL.BASEURI;
+		baseURI = Constant.BaseURL;
 		
 		LoginTest login = new LoginTest();
 		String currentAccount = login.creRequest(currentEmail, currentPassword);
