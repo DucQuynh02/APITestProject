@@ -17,6 +17,12 @@
     <version>7.0.0</version>
     
 </dependency>
+
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20220320</version>
+</dependency>
  
 <dependency>
     <groupId>com.googlecode.json-simple</groupId>
@@ -47,6 +53,13 @@
     <groupId>org.codehaus.groovy</groupId>
     <artifactId>groovy-json</artifactId>
     <version>3.0.8</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20220320</version>
 </dependency>
 
         </dependencies>

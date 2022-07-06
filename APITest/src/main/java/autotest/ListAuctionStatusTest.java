@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
  
-public class LoginTest {
+public class ListAuctionStatusTest {
 	private String access_token;
 	private String codeResponse;
 	private String messageResponse;
@@ -19,7 +19,7 @@ public class LoginTest {
 		
 		LoginTest login = new LoginTest();
 		String currentAccount = login.creRequest(email, password);
-		this.callAPI(currentAccount);
+		login.callAPI(currentAccount);
 		JSONObject data = new JSONObject(login.getDataResponse());
 		String access_token = data.getString("access_token").toString();
 		this.access_token = access_token;
@@ -27,12 +27,12 @@ public class LoginTest {
 
 	public String creRequest(String... request) {		
 		JSONObject req = new JSONObject();
-		req.put("email", request[0]);
-		req.put("password", request[1]);
+		req.put("index", request[0]);
+		req.put("count", request[1]);
 		return req.toString();
 	}
 
-	public void callAPI(String request) {
+	public void callAPI(String request, String statusID) {
 		baseURI = Constant.BaseURL;
 		
 		Response response = 
@@ -41,7 +41,7 @@ public class LoginTest {
 					.contentType("application/json")
 					.body(request)
 				.when()
-					.post("/api/login");
+					.get("api/auctions/listAuctionsByStatus" + statusID);
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
@@ -49,43 +49,37 @@ public class LoginTest {
 		this.dataResponse = rep.get("data").toString();
 	}
 
-	public void Login1() {
+	public void LAS1() {
 		System.out.println("Login test 1: The email or password is incorrect:");
-		String rq= this.creRequest("vdq@gmail.com","123");
-		this.callAPI(rq);
+		String rq=this.creRequest("1","3");
+		this.callAPI(rq, rq);
+		System.out.println("Code: "+this.codeResponse+"   Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1002") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void LAS2() {
+		System.out.println("Login test 1: The email or password is incorrect:");
+		String rq=this.creRequest("1","3");
+		this.callAPI(rq, rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1002") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
-	public void Login2() {
-		System.out.println("Login test 2: The email is empty, the code shall be 1001:");
-		String rq= this.creRequest("","123");
-		this.callAPI(rq);
+	
+	public void LAS3() {
+		System.out.println("Login test 1: The email or password is incorrect:");
+		String rq=this.creRequest("1","3");
+		this.callAPI(rq, rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1002") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
-	}
-	
-	public void Login3() {
-		System.out.println("Login test 3: The email and password are correct, the code shall be 1000:");
-		String rq= this.creRequest("thanh12345@gmail.com","123456");
-		this.callAPI(rq);
-		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
-			System.out.println("Finished! Satisfied!");
-		else System.out.println("Fail");
-//        assert(rp.message != null && !"".equals(rp.message));
-	}
-
-	
-	public String getDataResponse() {
-		return dataResponse;
-	}
-	public void setDataResponse(String dataResponse) {
-		this.dataResponse = dataResponse;
 	}
 }
+

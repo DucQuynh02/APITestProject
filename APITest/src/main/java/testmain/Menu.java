@@ -3,6 +3,7 @@ import static io.restassured.RestAssured.baseURI;
 
 import java.util.Scanner;
 
+import autotest.Constant;
 import autotest.LoginTest;
 
 public class Menu {
@@ -11,11 +12,7 @@ public class Menu {
 public static void main(String[] args) {
 	Scanner sc= new Scanner(System.in);
 	int luachon=0;
-	try {
-		LoginTest.baseURL = "https://auctions-app-2.herokuapp.com/api";
-	} catch (Exception e) {
-		e.printStackTrace();
-	} 
+ 
 	do{
 		System.out.println("----------Mời chọn chức năng :----------");
 		System.out.println("1: Chọn lựa đường link base URL");
@@ -27,9 +24,9 @@ public static void main(String[] args) {
 		if(luachon==1) {
 			System.out.println("Chọn lựa đường link base URL:");
 			String url = sc.nextLine();
-			if(!url.isEmpty() ) LoginTest.baseURL = url; 
-			else LoginTest.baseURL = "https://auctions-app-2.herokuapp.com/api"; 
-			System.out.println("Base URL là: "+LoginTest.baseURL);
+			if(!url.isEmpty() ) Constant.BaseURL = url; 
+			else Constant.BaseURL = "https://auctions-app-2.herokuapp.com/api"; 
+			System.out.println("Base URL là: "+Constant.BaseURL);
 			
 		}
 		else if(luachon==2) {	
