@@ -35,18 +35,40 @@ public class EditAuction {
 
 	public void callAPI(String request, String auctionId) {
 		baseURI = Constant.BaseURL;
-		
 		Response response = 
 				given()
 					.header("Authorization", "Bearer" + this.access_token)
 					.contentType("application/json")
 					.body(request)
 				.when()
-					.get("api/auctions/edit" + auctionId);
+					.post("api/auctions/edit" + auctionId);
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
+	}
+	
+	public void EditAuction1() {
+		System.out.println("Edit Auction test 1: Auction đã duyệt");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("7","","","");
+		this.callAPI(rq,"/497");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1005") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void EditAuction2() {
+		System.out.println("Edit Auction test 2: Auction đã duyệt");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("7","","","");
+		this.callAPI(rq,"/300");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1005") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
 	}
 }

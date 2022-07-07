@@ -72,7 +72,7 @@ public class LoginTest {
 	
 	public void Login3() {
 		System.out.println("Login test 3: The email and password are correct, the code shall be 1000:");
-		String rq= this.creRequest("thanh12345@gmail.com","123456");
+		String rq= this.creRequest("vdq118@gmail.com","vdq118");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))

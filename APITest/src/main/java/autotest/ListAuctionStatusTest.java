@@ -50,33 +50,33 @@ public class ListAuctionStatusTest {
 	}
 
 	public void LAS1() {
-		System.out.println("Login test 1: The email or password is incorrect:");
-		String rq=this.creRequest("1","3");
-		this.callAPI(rq, rq);
-		System.out.println("Code: "+this.codeResponse+"   Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1002") && !this.messageResponse.equals(""))
+		System.out.println("Get list auctions by status test 1: Correct data");
+		String rq= this.creRequest("1","3");
+		this.callAPI(rq,"/2");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
 	public void LAS2() {
-		System.out.println("Login test 1: The email or password is incorrect:");
-		String rq=this.creRequest("1","3");
-		this.callAPI(rq, rq);
+		System.out.println("Get list auctions by status test 2: index null");
+		String rq=this.creRequest("2","");
+		this.callAPI(rq, "/1");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1002") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
 	public void LAS3() {
-		System.out.println("Login test 1: The email or password is incorrect:");
-		String rq=this.creRequest("1","3");
-		this.callAPI(rq, rq);
+		System.out.println("Get list auctions by status test 3: count null");
+		String rq=this.creRequest("","1");
+		this.callAPI(rq, "/4");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1002") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));

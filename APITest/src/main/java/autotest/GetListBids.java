@@ -47,4 +47,14 @@ public class GetListBids {
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
 	}
+	public void ListBids1() {
+		System.out.println("Get list bids test 1: Correct data");
+		String rq= this.creRequest("1","3");
+		this.callAPI(rq,"/497");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
 }

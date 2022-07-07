@@ -2,6 +2,8 @@ package testmain;
 
 import java.util.Scanner;
 import autotest.CreateComment;
+import autotest.EditAuction;
+import autotest.GetListBids;
 import autotest.ListAuctionStatusTest;
 import autotest.LoginTest;
 import autotest.SignUpTest;
@@ -68,7 +70,10 @@ public class API {
 			}
 			else if(luachon==6) {
 				System.out.println("6: Get List Auctions By Status");				
-				 
+				ListAuctionStatusTest las = new ListAuctionStatusTest();
+				las.LAS1();
+				las.LAS2();
+				las.LAS3();
 			}
 			else if(luachon==7) {
 				System.out.println("7: Get List Auctions By User");
@@ -88,7 +93,8 @@ public class API {
 			}
 			else if(luachon==11) {
 				System.out.println("11: Edit Auction ");
-
+				EditAuction editAuc = new EditAuction();
+				editAuc.EditAuction1();
 
 				
 			}
@@ -114,7 +120,8 @@ public class API {
 			}
 			else if(luachon==16) {
 				System.out.println("16: Get List Bids");
-				
+				GetListBids getListBids = new GetListBids();
+				getListBids.ListBids1();
 				 
 			}
 			else if(luachon==17) {
