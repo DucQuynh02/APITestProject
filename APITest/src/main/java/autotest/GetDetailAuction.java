@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.baseURI;
 
 public class GetDetailAuction {
 
-    private String access_token;
+	private String access_token;
     private int codeResponse;
     private String messageResponse;
     private String dataResponse;
@@ -22,7 +22,7 @@ public class GetDetailAuction {
         LoginTest login = new LoginTest();
         String currentAccount = login.creRequest(email, password);
         login.callAPI(currentAccount);
-        JSONObject data = new JSONObject(login.dataResponse);
+        JSONObject data = new JSONObject(login.getDataResponse());
         String access_token = data.getString("access_token").toString();
         this.access_token = access_token;
     }

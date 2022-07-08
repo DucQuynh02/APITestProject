@@ -47,4 +47,15 @@ public class LikeAuction {
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
 	}
+	
+	public void likeAuction1() {
+		this.getAccessToken("vdq118@gmail.com", "vdq118");
+		System.out.println("Like auctions test 1: Correct data");
+		this.callAPI("/497");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
 }

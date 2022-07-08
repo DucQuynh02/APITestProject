@@ -17,10 +17,10 @@ public class EditAccount {
 		JSONObject data = new JSONObject(SignUpData.dataResponse);
 		String access_token = data.getString("access_token").toString();
 		return access_token;
-	}
+		}
 	
 	public void callAPI(String access_token) {
-		baseURI = BaseURL.BASEURI;
+		baseURI = Constant.BaseURL;
 		Response response = 
 				given()
 					.header("Authorization", "Bearer" + access_token)

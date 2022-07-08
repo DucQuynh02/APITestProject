@@ -36,6 +36,8 @@ public static void main(String[] args) {
 		}
 		else if(luachon==3) {
 			System.out.println("Chạy từng unit test case hay tất cả unit test của một API");
+			ChooseTest chTest = new ChooseTest();
+			chTest.menuTest();
 		}
 		else  {
 			System.out.println("Thoát chương trình");

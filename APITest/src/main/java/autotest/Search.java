@@ -20,7 +20,7 @@ public class Search  {
         LoginTest login = new LoginTest();
         String currentAccount = login.creRequest(email, password);
         login.callAPI(currentAccount);
-        JSONObject data = new JSONObject(login.dataResponse);
+        JSONObject data = new JSONObject(login.getDataResponse());
         String access_token = data.getString("access_token").toString();
         this.access_token = access_token;
     }
@@ -34,7 +34,7 @@ public class Search  {
     }
 
     public void callAPI( String request) {
-        baseURI = BaseURL.BASEURI;
+        baseURI = Constant.BaseURL;
         Response response =
                 given()
                         .header("Authorization", "Bearer" + access_token)

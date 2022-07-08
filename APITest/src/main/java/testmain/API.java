@@ -1,9 +1,13 @@
 package testmain;
 
 import java.util.Scanner;
+
+import autotest.Constant;
 import autotest.CreateComment;
 import autotest.EditAuction;
 import autotest.GetListBids;
+import autotest.GetNotifications;
+import autotest.LikeAuction;
 import autotest.ListAuctionStatusTest;
 import autotest.LoginTest;
 import autotest.SignUpTest;
@@ -11,7 +15,7 @@ import autotest.SignUpTest;
 public class API {
 	public void menuAPI() {
 		Scanner sc= new Scanner(System.in) ;
-		int luachon;
+		int luachonAPI = 0 ;
 			System.out.println("----------Mời chọn API :----------");
 			System.out.println("1: Login ");
 			System.out.println("2: Sign Up ");
@@ -44,143 +48,130 @@ public class API {
 			System.out.println("29: Search");
 			System.out.println("30: Delete Comment");
 			System.out.println("0: Thoát.");
-			luachon= sc.nextInt();
+			luachonAPI= sc.nextInt();
+			Constant.luachonAPI =luachonAPI;
 			sc.nextLine();
-			if(luachon==1) {
+			if(luachonAPI==1) {
 				System.out.println("1: Login");
-				LoginTest lgt = new LoginTest();
-				lgt.Login1();
-				lgt.Login2();
-				lgt.Login3();
-				
+			
 			}
-			else if(luachon==2) {	
+			else if(luachonAPI==2) {	
 				System.out.println("2: Sign Up");
-				SignUpTest.SignUp1();
+
 			}
-			else if(luachon==3) {
+			else if(luachonAPI==3) {
 				System.out.println("3: Edit Account");
 			}
-			else if(luachon==4) {
+			else if(luachonAPI==4) {
 				System.out.println("4: Logout");
 			}
-			else if(luachon==5) {
-				System.out.println("5: Get List Auctions By Status");
+			else if(luachonAPI==5) {
+				System.out.println("5: Get List Auctions");
 				
 			}
-			else if(luachon==6) {
+			else if(luachonAPI==6) {
 				System.out.println("6: Get List Auctions By Status");				
-				ListAuctionStatusTest las = new ListAuctionStatusTest();
-				las.LAS1();
-				las.LAS2();
-				las.LAS3();
+
 			}
-			else if(luachon==7) {
+			else if(luachonAPI==7) {
 				System.out.println("7: Get List Auctions By User");
 
 			}
-			else if(luachon==8) {
+			else if(luachonAPI==8) {
 				System.out.println("8: Get List Auctions By Type");
 				
 				
 			}
-			else if(luachon==9) {
+			else if(luachonAPI==9) {
 				System.out.println("9: Get Detail Auction");
 			}
-			else if(luachon==10) {
+			else if(luachonAPI==10) {
 				System.out.println("10: Create Auction ");
 				
 			}
-			else if(luachon==11) {
+			else if(luachonAPI==11) {
 				System.out.println("11: Edit Auction ");
-				EditAuction editAuc = new EditAuction();
-				editAuc.EditAuction1();
 
 				
 			}
-			else if(luachon==12) {	
+			else if(luachonAPI==12) {	
 				System.out.println("12: Create Item ");
 
 
 				
 			}
-			else if(luachon==13) {
+			else if(luachonAPI==13) {
 				System.out.println("13: Create Comment");
-				CreateComment crtcmt = new CreateComment();
-				crtcmt.test1();
+
 			}
-			else if(luachon==14) {
+			else if(luachonAPI==14) {
 				System.out.println("14: Get List Comment");
 				
 				
 			}
-			else if(luachon==15) {
+			else if(luachonAPI==15) {
 				System.out.println("15: Create Bid");
 				
 			}
-			else if(luachon==16) {
+			else if(luachonAPI==16) {
 				System.out.println("16: Get List Bids");
-				GetListBids getListBids = new GetListBids();
-				getListBids.ListBids1();
-				 
+
 			}
-			else if(luachon==17) {
+			else if(luachonAPI==17) {
 				System.out.println("17: Get List CateGoires");
 				
 			}
-			else if(luachon==18) {
+			else if(luachonAPI==18) {
 				System.out.println("18: Get List Brands");
 				
 				
 			}
-			else if(luachon==19) {
+			else if(luachonAPI==19) {
 				System.out.println("19: Accept Max Bid");
 				
 				
 			}
-			else if(luachon==20) {
+			else if(luachonAPI==20) {
 				System.out.println("20: Contact Us");
 			}
-			else if(luachon==21) {
+			else if(luachonAPI==21) {
 				System.out.println("21: Like Auction");
-				
+
 			}
-			else if(luachon==22) {	
+			else if(luachonAPI==22) {	
 				System.out.println("22: Get List Likes");
 				
 			}
-			else if(luachon==23) {
+			else if(luachonAPI==23) {
 				System.out.println("23: Total Likes Of Auction");
 			}
-			else if(luachon==24) {
+			else if(luachonAPI==24) {
 				System.out.println("24: Get News");
 			}
-			else if(luachon==25) {
+			else if(luachonAPI==25) {
 				System.out.println("25: Read New");
 				
 			}
-			else if(luachon==26) {
+			else if(luachonAPI==26) {
 				System.out.println("26: Get Notifications");
-				
-				 
+
 			}
-			else if(luachon==27) {
+			else if(luachonAPI==27) {
 				System.out.println("27: Read Notifications");
 				
 				
 			}
-			else if(luachon==28) {
+			else if(luachonAPI==28) {
 				System.out.println("28: Get Slider");
-
-								
+		
 				
 			}
-			else if(luachon==29) {
+			else if(luachonAPI==29) {
 				System.out.println("29: Search");
 
 	
 			}
-			else if(luachon==30) {
+			else if(luachonAPI==30) {
 				System.out.println("30: Delete Comment");
 			}
 			else  {

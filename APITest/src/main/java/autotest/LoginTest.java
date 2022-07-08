@@ -75,11 +75,57 @@ public class LoginTest {
 		String rq= this.creRequest("vdq118@gmail.com","vdq118");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1000") && this.messageResponse.equals("OK"))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
+	
+	public void Login4() {
+		System.out.println("Login test 4: The email is the wrong format");
+		String rq= this.creRequest("vdq118gmail.com","vdq118");
+		this.callAPI(rq);
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void Login5() {
+		System.out.println("Login test 5: The email is more than 255 characters");
+		String rq= this.creRequest("12300000000000000000000000000000000000000000000000000000000000000000000111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110000000000000000000000000000000000000000000000011"
+				,"vdq118");
+		this.callAPI(rq);
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void Login6() {
+		System.out.println("Login test 6: The password is null");
+		String rq= this.creRequest("vdq118@gmail.com"
+				,"");
+		this.callAPI(rq);
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void Login7() {
+		System.out.println("Login test 7: The password is more than 255 characters");
+		String rq= this.creRequest("ab000011@gmail.com"
+				,"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111111111111111111111111111111111111111111");
+		this.callAPI(rq);
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+
 
 	
 	public String getDataResponse() {

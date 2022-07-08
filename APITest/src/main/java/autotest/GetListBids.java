@@ -57,4 +57,26 @@ public class GetListBids {
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
+	
+	public void ListBids2() {
+		System.out.println("Get list bids test 2: Index null");
+		String rq= this.creRequest("","3");
+		this.callAPI(rq,"/497");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void ListBids3() {
+		System.out.println("Get list bids test 2: Count null");
+		String rq= this.creRequest("1","");
+		this.callAPI(rq,"/497");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
 }

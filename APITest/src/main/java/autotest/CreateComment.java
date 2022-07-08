@@ -20,7 +20,7 @@ public class CreateComment {
 	}
 	
 	public void callAPI(String currentEmail, String currentPassword, String request,String auctionsID) {
-		baseURI = BaseURL.BASEURI;
+		baseURI = Constant.BaseURL;
 		
 		LoginTest login = new LoginTest();
 		String currentAccount = login.creRequest(currentEmail, currentPassword);
@@ -42,7 +42,7 @@ public class CreateComment {
 		this.dataResponse = rep.get("data").toString();
 	}
 	
-	void test1() {
+	public void test1() {
 		System.out.println("Test 1 in CreateAuction API: The code should be 1000 and message is OK:");
 		
 		//Unit 1
