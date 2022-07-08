@@ -5,7 +5,10 @@ import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.Assert;
 
-public class EditAccount extends APINeedTesting {
+public class EditAccount {
+	private int codeResponse;
+	private String messageResponse;
+	private String dataResponse;
 	
 	public String creRequest(String... request) {
 		SignUpTest req = new SignUpTest();
