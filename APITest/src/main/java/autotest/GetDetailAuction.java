@@ -9,9 +9,12 @@ import static io.restassured.RestAssured.baseURI;
 
         import io.restassured.response.Response;
 
-public class GetDetailAuction extends APINeedTesting{
+public class GetDetailAuction {
 
     private String access_token;
+    private int codeResponse;
+    private String messageResponse;
+    private String dataResponse;
 
     public void getAccessToken(String email, String password) {
         baseURI = "https://auctions-app-2.herokuapp.com/";

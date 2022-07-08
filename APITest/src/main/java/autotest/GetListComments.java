@@ -8,7 +8,24 @@ import org.testng.Assert;
 
 import io.restassured.response.Response;
 
-public class GetListComments extends APINeedTesting{
+public class GetListComments {
+
+    private int codeResponse;
+    private String messageResponse;
+    private String dataResponse;
+    private String access_token;
+
+    public void getAccessToken(String email, String password) {
+        baseURI = "https://auctions-app-2.herokuapp.com/";
+
+        LoginTest login = new LoginTest();
+        String currentAccount = login.creRequest(email, password);
+        login.callAPI(currentAccount);
+        JSONObject data = new JSONObject(login.dataResponse);
+        String access_token = data.getString("access_token").toString();
+        this.access_token = access_token;
+    }
+
 
     public String creRequest(String... request) {
         JSONObject req = new JSONObject();
@@ -17,15 +34,8 @@ public class GetListComments extends APINeedTesting{
         return req.toString();
     }
 
-    public void callAPI(String currentEmail, String currentPassword, String request,String auctionsID) {
+    public void callAPI( String request,String auctionsID) {
         baseURI = BaseURL.BASEURI;
-
-        LoginTest login = new LoginTest();
-        String currentAccount = login.creRequest(currentEmail, currentPassword);
-        login.callAPI(currentAccount);
-        JSONObject data = new JSONObject(login.dataResponse);
-        String access_token = data.getString("access_token").toString();
-
         Response response =
                 given()
                         .header("Authorization", "Bearer" + access_token)
@@ -48,7 +58,7 @@ public class GetListComments extends APINeedTesting{
             String email = "ccc@gmail.com";
             String password = "111";
             String auctionID = "1";
-            this.callAPI(email, password, request,auctionID);
+            this.callAPI( request,auctionID);
             Assert.assertEquals(this.codeResponse, 1000);
             Assert.assertEquals(this.messageResponse, "OK");
             System.out.println("Code: 1000\nMessage: OK");
