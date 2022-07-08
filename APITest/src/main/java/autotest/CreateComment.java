@@ -7,7 +7,11 @@ import org.json.JSONObject;
 import org.testng.Assert;
 
 import io.restassured.response.Response;
-public class CreateComment extends APINeedTesting{
+public class CreateComment {
+	private int codeResponse;
+	private String messageResponse;
+	private String dataResponse;
+
 	public String creRequest(String... request) {		
 		JSONObject req = new JSONObject();
 		req.put("content", request[0]);
@@ -16,7 +20,7 @@ public class CreateComment extends APINeedTesting{
 	}
 	
 	public void callAPI(String currentEmail, String currentPassword, String request,String auctionsID) {
-		baseURI = Constant.BaseURL;
+		baseURI = BaseURL.BASEURI;
 		
 		LoginTest login = new LoginTest();
 		String currentAccount = login.creRequest(currentEmail, currentPassword);
@@ -38,7 +42,7 @@ public class CreateComment extends APINeedTesting{
 		this.dataResponse = rep.get("data").toString();
 	}
 	
-	public void test1() {
+	void test1() {
 		System.out.println("Test 1 in CreateAuction API: The code should be 1000 and message is OK:");
 		
 		//Unit 1
