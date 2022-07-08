@@ -6,7 +6,10 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import io.restassured.response.Response;
 
-public class TotalLikesOfAuction extends APINeedTesting {
+public class TotalLikesOfAuction {
+	private int codeResponse;
+	private String messageResponse;
+	private String dataResponse;
 	
 	public String creRequest(String ... request) {
 		LoginTest login = new LoginTest();
