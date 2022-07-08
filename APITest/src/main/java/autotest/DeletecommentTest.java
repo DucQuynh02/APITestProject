@@ -5,14 +5,9 @@ import static io.restassured.RestAssured.given;
 
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
-
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 
-public class readnewTest {
-	private String baseURL;
+public class DeletecommentTest {
 	private String access_token;
 	private String codeResponse;
 	private String messageResponse;
@@ -20,7 +15,7 @@ public class readnewTest {
 
 	public void getAccessToken(String email, String password) {
 		baseURI = Constant.BaseURL;
-		
+			
 		LoginTest login = new LoginTest();
 		String currentAccount = login.creRequest(email, password);
 		login.callAPI(currentAccount);
@@ -28,30 +23,43 @@ public class readnewTest {
 		String access_token = data.getString("access_token").toString();
 		this.access_token = access_token;
 		}
-	
-	public void callAPI(String newId) {
-		baseURI = Constant.BaseURL;
 		
+
+	public void callAPI(String commentId) {
+		baseURI = Constant.BaseURL;
+			
 		Response response = 
 				given()
 					.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+					//.body(request)
 				.when()
-					.get("/api/news/read/" + newId);
-		
+					.post("/api/comments/delete/" + commentId);
+			
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		codeResponse = rep.get("code").toString();
 		messageResponse = rep.get("message").toString();
 		dataResponse = rep.get("data").toString();
-		}
-
-	public void Test() {
-		System.out.println("Readnew test : ");
+	 }
+	
+	public void Test1() {
+		System.out.println("Contact test 1: ");
 		this.getAccessToken("anhquan582001@gmail.com", "123456");
 		this.callAPI("1");
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1006") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
-		}
+	}
+	
+//	public void Test2() {
+//		System.out.println("Contact test 2: ");
+//		this.getAccessToken("anhquan582001@gmail.com", "123456");
+//		this.callAPI("395");
+//		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+//		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+//			System.out.println("Finished! Satisfied!");
+//		else System.out.println("Fail");
+//	}
 
 }

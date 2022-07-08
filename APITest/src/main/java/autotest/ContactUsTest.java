@@ -1,9 +1,9 @@
 package autotest;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import io.restassured.response.Response;
 
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
@@ -11,101 +11,162 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class ContactUsTest {
-	public String baseURL;
-	public static ResponseSignUp UnitTest(String name,String phone, String email, String content, String report_type){		
-		baseURI = LoginTest.baseURL; 
-		RequestSpecification request = given();
+	private String access_token;
+	private String codeResponse;
+	private String messageResponse;
+	private String dataResponse;
 
+//	public void getAccessToken(String email, String password) {
+//		baseURI = Constant.BaseURL;
+//			
+//		LoginTest login = new LoginTest();
+//		String currentAccount = login.creRequest(email, password);
+//		login.callAPI(currentAccount);
+//		JSONObject data = new JSONObject(login.getDataResponse());
+//		String access_token = data.getString("access_token").toString();
+//		this.access_token = access_token;
+//		}
 		
-		JSONObject requestPrams = new JSONObject();
-		requestPrams.put("name", name);
-		requestPrams.put("phone", phone);
-		requestPrams.put("email", email);
-		requestPrams.put("content", content);
-		requestPrams.put("report_type", report_type);
-	
-		request.header("Content-Type", "application/json");
-		request.body(requestPrams.toJSONString());
+	public String creRequest(String... request) {		
+		JSONObject req = new JSONObject();
+		req.put("name", request[0]);
+		req.put("phone", request[1]);
+		req.put("email", request[2]);
+		req.put("content", request[3]);
+		req.put("file", request[4]);
+		req.put("report_type", request[5]);
+		return req.toString();
+		}
 
-		Response response = request.post("/contactUs");
-//		System.out.println("Status request: " + response.getStatusLine());
-//		System.out.println("The content: " + response.prettyPrint());	    
-		
-		Gson g = new Gson(); 
-        ResponseSignUp rp = g.fromJson(response.asString().toString(), ResponseSignUp.class);
-		return rp;
+	public void callAPI(String request) {
+		baseURI = Constant.BaseURL;
+			
+		Response response = 
+				given()
+					//.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+					.body(request)
+				.when()
+					.post("/api/contactUs");
+			
+		JSONObject rep = new JSONObject(response.getBody().asString());
+		codeResponse = rep.get("code").toString();
+		messageResponse = rep.get("message").toString();
+		dataResponse = rep.get("data").toString();
 	 }
 	
-	public static void Test1() {
-		ResponseSignUp rp=UnitTest("quan", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "1");
-		System.out.println("Contact test 1: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1000") && !rp.message.equals(""))
+	public void Test1() {
+		System.out.println("Contact test 1: access data");
+		String rq = this.creRequest("quan", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap","", "1");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test2() {
-		ResponseSignUp rp=UnitTest("", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "1");
-		System.out.println("Contact test 2: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test2() {
+		String rq = this.creRequest("", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap","", "1");
+		System.out.println("Contact test 2: name null");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test3() {
-		ResponseSignUp rp=UnitTest("quan", "", "anhquan582001@gmail.com", "khong the dang nhap", "1");
-		System.out.println("Contact test 3: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test3() {
+		String rq = this.creRequest("quan", "", "anhquan582001@gmail.com", "khong the dang nhap","", "1");
+		System.out.println("Contact test 3: phone null");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test4() {
-		ResponseSignUp rp=UnitTest("quan", "0123456789", "", "khong the dang nhap", "1");
-		System.out.println("Contact test 4: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test4() {
+		String rq = this.creRequest("quan", "0123456789", "", "khong the dang nhap","", "1");
+		System.out.println("Contact test 4: email null");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test5() {
-		ResponseSignUp rp=UnitTest("quan", "0123456789", "anhquan582001@gmail.com", "", "1");
-		System.out.println("Contact test 5: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test5() {
+		String rq = this.creRequest("quan", "0123456789", "anhquan582001@gmail.com", "", "", "1");
+		System.out.println("Contact test 5: content null");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test6() {
-		ResponseSignUp rp=UnitTest("quan", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "");
-		System.out.println("Contact test 6: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test6() {
+		String rq = this.creRequest("quan", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "", "");
+		System.out.println("Contact test 6: report_type null");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test7() {
-		ResponseSignUp rp=UnitTest("quan", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "4");
-		System.out.println("Contact test 7: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test7() {
+		String rq = this.creRequest("quan", "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "", "4");
+		System.out.println("Contact test 7: report_type invalid");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
-	public static void Test8() {
-		String phone = "011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111";
-		ResponseSignUp rp=UnitTest("quan", phone, "anhquan582001@gmail.com", "khong the dang nhap", "1");
-		System.out.println("Contact test 8: ");
-		System.out.println("Code: "+rp.code+"    Message: "+rp.message);
-		if(rp.code.equals("1001") && !rp.message.equals(""))
+	public void Test8() {
+		String phone = "1111111111111111111111111111111111111111111111111111111111111";
+		String rq = this.creRequest("quan", phone, "anhquan582001@gmail.com", "khong the dang nhap", "", "1");
+		System.out.println("Contact test 8: phone more than 60 characters");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
+	
+	public void Test9() {
+		String name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+		String rq = this.creRequest(name, "0123456789", "anhquan582001@gmail.com", "khong the dang nhap", "", "1");
+		System.out.println("Contact test 9: name more than 255 characters");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void Test10() {
+		String email = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com";
+		String rq = this.creRequest("quan", "0123456789", email, "khong the dang nhap", "", "1");
+		System.out.println("Contact test 10: email more than 255 characters");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void Test11() {
+		String rq = this.creRequest("quan", "0123456789", "anhquan582001", "khong the dang nhap", "", "1");
+		System.out.println("Contact test 11: email incorrect format");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	
 }
