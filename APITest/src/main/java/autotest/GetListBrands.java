@@ -18,13 +18,16 @@ public class GetListBrands {
 		return null;
 	}
 
-	public void callAPI() {
+	public void callAPI(String request) {
 		baseURI = Constant.BaseURL;
 		
 		Response response = 
 				given()
+					.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+					.body(request)
 				.when()
-					.get("api/brands");
+					.get("api/brands" );
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
@@ -33,8 +36,9 @@ public class GetListBrands {
 	}
 
 	public void test1() {
-		System.out.println("Test 1 in GetListBrands API: The code should be 1000 and message is OK");
-		this.callAPI();
+		System.out.println("Test 1 in GetListBrands API: Correct data");
+		String rq= "";
+		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
