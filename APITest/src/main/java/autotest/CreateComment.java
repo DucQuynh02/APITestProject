@@ -1,16 +1,29 @@
 package autotest;
-import static io.restassured.RestAssured.baseURI;
 
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import org.json.JSONObject;
-import org.testng.Assert;
 
-import io.restassured.response.Response;
+import com.google.gson.Gson;
+ 
 public class CreateComment {
-	private int codeResponse;
+	private String access_token;
+	private String codeResponse;
 	private String messageResponse;
 	private String dataResponse;
+
+	public void getAccessToken(String email, String password) {
+		baseURI = Constant.BaseURL;
+		
+		LoginTest login = new LoginTest();
+		String currentAccount = login.creRequest(email, password);
+		login.callAPI(currentAccount);
+		JSONObject data = new JSONObject(login.getDataResponse());
+		String access_token = data.getString("access_token").toString();
+		this.access_token = access_token;
+	}
 
 	public String creRequest(String... request) {		
 		JSONObject req = new JSONObject();
@@ -18,104 +31,98 @@ public class CreateComment {
 		req.put("comment_last_id", request[1]);
 		return req.toString();
 	}
-	
-	public void callAPI(String currentEmail, String currentPassword, String request,String auctionsID) {
+
+	public void callAPI(String request, String auctionID) {
 		baseURI = Constant.BaseURL;
-		
-		LoginTest login = new LoginTest();
-		String currentAccount = login.creRequest(currentEmail, currentPassword);
-		login.callAPI(currentAccount);
-		JSONObject data = new JSONObject(login.getDataResponse());
-		String access_token = data.getString("access_token").toString();
 		
 		Response response = 
 				given()
-					.header("Authorization", "Bearer" + access_token)
+					.header("Authorization", "Bearer" + this.access_token)
 					.contentType("application/json")
 					.body(request)
 				.when()
-					.post("api/comments/create/"+auctionsID);
+					.post("api/comments/create" + auctionID);
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
-		this.codeResponse = Integer.parseInt(rep.get("code").toString());
+		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
 	}
-	
 	public void test1() {
-		System.out.println("Test 1 in CreateAuction API: The code should be 1000 and message is OK:");
-		
-		//Unit 1
-		try {		
-			String request = this.creRequest(
-					"1"
-					, "1"
-			);
-			String email = "bkhn@gmail.com";	
-			String password = "121212";
-			String auctionID ="1";
-			this.callAPI(email, password, request,auctionID);
-			Assert.assertEquals(this.codeResponse, 1000);
-			Assert.assertEquals(this.messageResponse, "OK");
-	        System.out.println("Unit 1: Passed");
-	        System.out.println(this.dataResponse);
-		} catch (AssertionError e) {
-			System.out.println("Unit 1: Failed");
-		}
-	
-
-	//Unit 2
-	try {		
-		String request = this.creRequest(
-				"1"
-				, "10000"
-		);
-		String email = "bkhn@gmail.com";	
-		String password = "121212";
-		String auctionID ="231";
-		this.callAPI(email, password, request,auctionID);
-		Assert.assertEquals(this.codeResponse, 1000);
-		Assert.assertEquals(this.messageResponse, "OK");
-        System.out.println("Unit 2: Passed");
-        System.out.println(this.dataResponse);
-	} catch (AssertionError e) {
-		System.out.println("Unit 2: Failed");
+		System.out.println("Get Create comment test 1: Correct data");
+		String rq= this.creRequest("ye","ey");
+		this.callAPI(rq,"/0");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
 	}
 	
-	try {		
-		String request = this.creRequest(
-				"1"
-				, "1"
-		);
-		String email = "bkhn@gmail.com";	
-		String password = "121212";
-		String auctionID ="431"; //Auction đang chờ duyệt ==> lỗi mô tả
-		this.callAPI(email, password, request,auctionID);
-		Assert.assertEquals(this.codeResponse, 1000);
-		Assert.assertEquals(this.messageResponse, "OK");
-        System.out.println("Unit 3: Passed");
-        System.out.println(this.dataResponse);
-	} catch (AssertionError e) {
-		System.out.println("Unit 3: Failed");
-	}
-
-	try {		
-		String request = this.creRequest(
-				"1"
-				, "1"
-		);
-		String email = "bkhn@gmail.com";	
-		String password = "121212";
-		String auctionID ="567"; //Auction đã kết thúc nhưng vẫn comment được 
-		this.callAPI(email, password, request,auctionID);
-		Assert.assertEquals(this.codeResponse, 1000);
-		Assert.assertEquals(this.messageResponse, "OK");
-        System.out.println("Unit 4: Passed");
-        System.out.println(this.dataResponse);
-	} catch (AssertionError e) {
-		System.out.println("Unit 4: Failed");
+	public void test2() {
+		System.out.println("Get Create comment test 2: content null");
+		String rq=this.creRequest("hello","");
+		this.callAPI(rq, "/431");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
 	}
 	
+	public void test3() {
+		System.out.println("Get Create comment test 3: comment_last_id null");
+		String rq=this.creRequest("","hi");
+		this.callAPI(rq, "32");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
 	}
 	
+	public void test4() {
+		System.out.println("Get Create comment test 3: comment_last_id null");
+		String rq=this.creRequest("","hi");
+		this.callAPI(rq, "32");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void test5() {
+		System.out.println("Get Create comment test 3: Correct data");
+		String rq=this.creRequest("@@@","102");
+		this.callAPI(rq, "567");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	public void test6() {
+		System.out.println("Get Create comment test 3: comment_last_id null");
+		String rq=this.creRequest("@@@","102");
+		this.callAPI(rq, "999");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	public void test7() {
+		System.out.println("Get Create comment test 3: comment_last_id null");
+		String rq=this.creRequest("","...");
+		this.callAPI(rq, "56");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void test8() {
+		System.out.println("Get Create comment test 3: content null");
+		String rq=this.creRequest("quynh##3","");
+		this.callAPI(rq, "56");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
 }
