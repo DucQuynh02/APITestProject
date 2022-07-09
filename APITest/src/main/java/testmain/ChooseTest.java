@@ -273,6 +273,23 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==4) {
 			System.out.println("4: Logout");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Logout test 1: ");
+			System.out.println("2: Logiut test 2:");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			LogoutTest lt = new LogoutTest();
+			if(luachonTest==0) {
+				lt.Logout1();
+				lt.Logout2();
+			}
+			else if(luachonTest==1) {
+				lt.Logout1();
+			}
+			else if(luachonTest==2) {
+				lt.Logout2();
+			}
 		}
 		else if(luachonAPI==5) {
 			System.out.println("5: Get List Auctions");
@@ -636,11 +653,52 @@ public class ChooseTest {
 	
 			
 		}
-		else if(luachonAPI==13) {
-			System.out.println("13: Create Comment");
-			CreateComment crtcmt = new CreateComment();
-			crtcmt.test1();
+			else if(luachonAPI==13) {
+			System.out.println("13: Create comment");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Create comment test 1: Correct data ");
+			System.out.println("2: Create comment test 2: content null");
+			System.out.println("3: Create comment test 3: comment_last_id null");
+			System.out.println("4: Create comment test 4: Auction đang chờ duyệt");
+			System.out.println("5: Create comment test 5: Auction đã kết thúc nhưng vẫn comment được");
+			System.out.println("6: Create comment test 6: comment_last_id không tồn tại");
+			System.out.println("7: Create comment test 7: Chưa đăng nhập");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			CreateComment test = new CreateComment();
+			if(luachonTest==0) {
+			test.test1();
+			test.test2();
+			test.test3();
+			test.test4();
+			test.test5();
+			test.test6();
+			test.test7();
+			}
+			else if(luachonTest==1) {
+				test.test1();
+				}
+			else if(luachonTest==2) {
+				test.test2();
+				}
+			else if(luachonTest==3) {
+				test.test3();
+				}
+			else if(luachonTest==4) {
+				test.test4();
+				}
+			else if(luachonTest==5) {
+				test.test5();
+				}
+			else if(luachonTest==6) {
+				test.test6();
+				}
+			else if(luachonTest==7) {
+				test.test7();
+				}
 		}
+		
 		else if(luachonAPI==14) {
 			System.out.println("14: Get List Comment");
 			System.out.println("----------Mời chọn Test Case :----------");
@@ -756,8 +814,14 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==18) {
 			System.out.println("18: Get List Brands");
-			
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("1: Get list brands test 1: The code should be 1000 and message is OK ");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			GetListBrands test = new GetListBrands();
+			if(luachonTest==1) {
+				test.test1();
+			}
 		}
 		else if(luachonAPI==19) {
 			System.out.println("19: Accept Max Bid");
@@ -925,8 +989,17 @@ public class ChooseTest {
 				gll.GetListLikes3();
 				}
 		}
+		
 		else if(luachonAPI==23) {
 			System.out.println("23: Total Likes Of Auction");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("1: Total likes of auction test 1: The code should be 1000 and message is OK ");
+				luachonTest = sc.nextInt();
+				sc.nextLine();
+			TotalLikesOfAuction test = new TotalLikesOfAuction();
+			if(luachonTest==1) {
+					test.test1();
+				}
 		}
 		else if(luachonAPI==24) {
 			System.out.println("24: Get News");
@@ -1028,12 +1101,19 @@ public class ChooseTest {
 				rn.ReadNotifications2(); 
 				}		
 		}
+		
 		else if(luachonAPI==28) {
 			System.out.println("28: Get Slider");
-
-							
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("1: Get slider test 1: The code should be 1000 and message is OK ");
+					luachonTest = sc.nextInt();
+					sc.nextLine();
+				GetSlider test = new GetSlider();
+			if(luachonTest==1) {
+						test.test1();
+			}
 		}
+		
 		else if(luachonAPI==29) {
 			System.out.println("29: Search");
 			System.out.println("----------Mời chọn Test Case :----------");
