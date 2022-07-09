@@ -807,8 +807,6 @@ public class ChooseTest {
 			System.out.println("1: Accept Max Bid test 1: chua dang nhap ");
 			System.out.println("2: Accept Max Bid test 2: khong co quyen");
 			System.out.println("3: Accept Max Bid test 3: phien dau gia chua ket thuc");
-			System.out.println("3: Accept Max Bid test 4: da ban");
-			System.out.println("3: Accept Max Bid test 5: chua co tra gia nao");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			AcceptMaxBid amb = new AcceptMaxBid();
@@ -816,8 +814,6 @@ public class ChooseTest {
 				amb.AMB1();
 				amb.AMB2();
 				amb.AMB3();
-				amb.AMB4();
-				amb.AMB5();
 			}
 			else if(luachonTest==1) {
 				amb.AMB1();
@@ -827,12 +823,6 @@ public class ChooseTest {
 			}
 			else if(luachonTest==3) {
 				amb.AMB3();
-			}
-			else if(luachonTest==4) {
-				amb.AMB4();
-			}
-			else if(luachonTest==5) {
-				amb.AMB5();
 			}
 		}
 		else if(luachonAPI==20) {
@@ -979,7 +969,6 @@ public class ChooseTest {
 				}
 		}
 		else if(luachonAPI==24) {
-			System.out.println("24: Get News");
 			System.out.println("24: Get News");
 			System.out.println("----------Mời chọn Test Case :----------");
 			System.out.println("0: All unit test ");
