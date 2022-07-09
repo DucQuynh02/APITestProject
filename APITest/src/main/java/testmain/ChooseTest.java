@@ -1036,12 +1036,53 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==29) {
 			System.out.println("29: Search");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Search test 1: correct data");
+			System.out.println("2: Search test 2: type null");
+			System.out.println("2: Search test 3: key null");
+			System.out.println("2: Search test 4: tim kiem theo gia khoi diem");
+			System.out.println("2: Search test 5: tim kiem theo thoi gian bat dau cua phien dau gia");
+			System.out.println("2: Search test 6: tim kiem theo thoi gian ket thuc cua phien dau gia");
+			System.out.println("2: Search test 7: tim kiem theo ten cua phien dau gia");
+			System.out.println("2: Search test 8: khong tim thay ket qua");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
 			Search search = new Search();
-			search.Search1();
-			search.Search2();
-			search.Search3();
-			search.Search4();
-			search.Search5();
+			if(luachonTest==0) {
+				search.Search1();
+				search.Search2();
+				search.Search3();
+				search.Search4();
+				search.Search5();
+				search.Search6();
+				search.Search7();
+				search.Search8();
+			}
+			else if(luachonTest==1) {
+				search.Search1();
+			}
+			else if(luachonTest==2) {
+				search.Search2();
+			}
+			else if(luachonTest==3) {
+				search.Search3();
+			}
+			else if(luachonTest==4) {
+				search.Search4();
+			}
+			else if(luachonTest==5) {
+				search.Search5();
+			}
+			else if(luachonTest==6) {
+				search.Search6();
+			}
+			else if(luachonTest==7) {
+				search.Search7();
+			}
+			else if(luachonTest==8) {
+				search.Search8();
+			}
 
 		}
 		
