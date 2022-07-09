@@ -11,37 +11,53 @@ import static io.restassured.RestAssured.*;
 import org.json.JSONObject;
 import io.restassured.response.Response;
 import org.testng.Assert;
- public class LogoutTest extends APINeedTesting{
+ public class LogoutTest {
 
 
-    public String setLogin(String email, String password) {
-        LoginTest lg = new LoginTest();
-        return lg.getAccessToken(email, password);
-    }
+     private String codeResponse;
+     private String messageResponse;
+     private String dataResponse;
+     private String access_token;
 
-    public void callAPI(String access_token) {
-        baseURI = "https://auctions-app-2.herokuapp.com/";
-        Response response =
-                given()
-                        .header("Authorization", "Bearer" + access_token)
-                        .when()
-                        .post("api/logout");
+     public void getAccessToken(String email, String password) {
+         baseURI = Constant.BaseURL;
 
-        JSONObject rep = new JSONObject(response.getBody().asString());
-        this.codeResponse = Integer.parseInt(rep.get("code").toString());
-        this.messageResponse = rep.get("message").toString();
-        this.dataResponse = rep.get("data").toString();
-    }
+         LoginTest login = new LoginTest();
+         String currentAccount = login.creRequest(email, password);
+         this.callAPI(currentAccount);
+         JSONObject data = new JSONObject(login.getDataResponse());
+         String access_token = data.getString("access_token").toString();
+         this.access_token = access_token;
+     }
 
-    void test(){
-        String email = "ccc";
-        String password = "111";
+     public String creRequest(String... request) {
+         JSONObject req = new JSONObject();
+         req.put("email", request[0]);
+         req.put("password", request[1]);
+         return req.toString();
+     }
 
-        String access_token = this.setLogin(email, password);
-        this.callAPI(access_token);
+     public void callAPI(String access_token) {
+         baseURI = Constant.BaseURL;
+         Response response =
+                 given()
+                         .header("Authorization", "Bearer" + access_token)
+                         .when()
+                         .post("api/logout");
 
-        System.out.println(this.codeResponse);
-    }
+         JSONObject rep = new JSONObject(response.getBody().asString());
+         this.codeResponse = rep.get("code").toString();
+         this.messageResponse = rep.get("message").toString();
+         this.dataResponse = rep.get("data").toString();
+     }
 
-
-}
+     public void Logout1() {
+         System.out.println("Logout test 1:Logout thanh cong");
+         String rq = this.creRequest("ndh@gmail.com", "123");
+         this.callAPI(rq);
+         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+             System.out.println("Finished! Satisfied!");
+         else System.out.println("Fail");
+     }
+ }
