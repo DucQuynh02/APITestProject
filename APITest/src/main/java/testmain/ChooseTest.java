@@ -989,8 +989,17 @@ public class ChooseTest {
 				gll.GetListLikes3();
 				}
 		}
+		
 		else if(luachonAPI==23) {
 			System.out.println("23: Total Likes Of Auction");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("1: Total likes of auction test 1: The code should be 1000 and message is OK ");
+				luachonTest = sc.nextInt();
+				sc.nextLine();
+			TotalLikesOfAuction test = new TotalLikesOfAuction();
+			if(luachonTest==1) {
+					test.test1();
+				}
 		}
 		else if(luachonAPI==24) {
 			System.out.println("24: Get News");
@@ -1092,12 +1101,19 @@ public class ChooseTest {
 				rn.ReadNotifications2(); 
 				}		
 		}
+		
 		else if(luachonAPI==28) {
 			System.out.println("28: Get Slider");
-
-							
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("1: Get slider test 1: The code should be 1000 and message is OK ");
+					luachonTest = sc.nextInt();
+					sc.nextLine();
+				GetSlider test = new GetSlider();
+			if(luachonTest==1) {
+						test.test1();
+			}
 		}
+		
 		else if(luachonAPI==29) {
 			System.out.println("29: Search");
 			System.out.println("----------Mời chọn Test Case :----------");
