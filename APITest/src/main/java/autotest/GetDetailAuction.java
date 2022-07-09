@@ -48,7 +48,7 @@ public class GetDetailAuction {
         this.dataResponse = rep.get("data").toString();
     }
     public void DA1() {
-        System.out.println("Get detail auctions test 1: Dang dien ra");
+        System.out.println("Get detail auction test 1: Dang dien ra");
         this.callAPI("/1");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -64,7 +64,7 @@ public class GetDetailAuction {
         else System.out.println("Fail");
     }
     public void DA3() {
-        System.out.println("Get detail auctions test 3:Da ket thuc ");
+        System.out.println("Get detail auction test 3:Da ket thuc ");
         this.callAPI("/3");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -72,7 +72,7 @@ public class GetDetailAuction {
         else System.out.println("Fail");
     }
     public void DA4() {
-        System.out.println("Get detail auctions test 4: Dang cho phe duyet");
+        System.out.println("Get detail auction test 4: Dang cho phe duyet");
         this.callAPI("/4");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -80,7 +80,7 @@ public class GetDetailAuction {
         else System.out.println("Fail");
     }
     public void DA5() {
-        System.out.println("Get detail auctions test 5: Da bi tu choi");
+        System.out.println("Get detail auction test 5: Da bi tu choi");
         this.callAPI("/5");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -88,7 +88,7 @@ public class GetDetailAuction {
         else System.out.println("Fail");
     }
     public void DA6() {
-        System.out.println("Get detail auctions test 1: Da ban");
+        System.out.println("Get detail auction test 6: Da ban");
         this.callAPI("/6");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
