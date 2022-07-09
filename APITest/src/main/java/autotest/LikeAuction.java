@@ -58,4 +58,28 @@ public class LikeAuction {
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
+	
+	public void likeAuction2() {
+		this.getAccessToken("vdq118@gmail.com", "vdq118");
+		System.out.println("Like auctions test 2: Auction chưa duyệt");
+		this.callAPI("/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void likeAuction3() {
+		this.access_token = "";
+		System.out.println("Like auctions test 3: Không đăng nhập");
+		this.callAPI("/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	
 }

@@ -26,9 +26,9 @@ public class EditAuction {
 
 	public String creRequest(String... request) {		
 		JSONObject req = new JSONObject();
-		req.put("category_Id", request[0]);
-		req.put("startdate", request[1]);
-		req.put("enddate", request[2]);
+		req.put("category_id", request[0]);
+		req.put("start_date", request[1]);
+		req.put("end_date", request[2]);
 		req.put("title_ni", request[3]);
 		return req.toString();
 	}
@@ -61,12 +61,50 @@ public class EditAuction {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	public void EditAuction2() {
-		System.out.println("Edit Auction test 2: Auction đã duyệt");
+		System.out.println("Edit Auction test 2: Auction đã duyệt, Đăng xuất");
 		getAccessToken("vdq118@gmail.com", "vdq118");
+		LogoutTest logout = new LogoutTest();
+		logout.callAPI(this.access_token);
 		String rq= this.creRequest("7","","","");
-		this.callAPI(rq,"/300");
+		this.callAPI(rq,"/497");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1005") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction3() {
+		System.out.println("Edit Auction test 3: Edit Category id");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("7","","","");
+		this.callAPI(rq,"/654");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction4() {
+		System.out.println("Edit Auction test 4: Edit all fields");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("6","2022/07/10","2022/08/11","Dau gia 651");
+		this.callAPI(rq,"/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction5() {
+		System.out.println("Edit Auction test 5: Edit trùng title ");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("7","2022/07/10","2022/08/22","Dau gia 651");
+		this.callAPI(rq,"/654");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));

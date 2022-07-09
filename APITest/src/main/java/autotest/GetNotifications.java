@@ -61,7 +61,7 @@ public class GetNotifications {
 		}
 		
 		public void getNoti2() {
-			System.out.println("Get Notifications 1: Correct data");
+			System.out.println("Get Notifications 2: Correct data");
 			this.getAccessToken("vdq118@gmail.com", "vdq118");
 			String rq= this.creRequest("1","2","");
 			this.callAPI(rq);
@@ -71,4 +71,19 @@ public class GetNotifications {
 			else System.out.println("Fail");
 //	        assert(rp.message != null && !"".equals(rp.message));
 		}
+		public void getNoti3() {
+			System.out.println("Get Notifications 3: Logout");
+			this.getAccessToken("vdq118@gmail.com", "vdq118");
+			LogoutTest logout = new LogoutTest();
+			logout.callAPI(this.access_token);
+			String rq= this.creRequest("1","2","");
+			this.callAPI(rq);
+			System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+			if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
+				System.out.println("Finished! Satisfied!");
+			else System.out.println("Fail");
+//	        assert(rp.message != null && !"".equals(rp.message));
+		}
+
+		
 }

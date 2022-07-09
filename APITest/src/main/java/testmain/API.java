@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import autotest.Constant;
 import autotest.CreateComment;
+import autotest.EditAccount;
 import autotest.EditAuction;
 import autotest.GetListBids;
 import autotest.GetNotifications;
@@ -61,6 +62,9 @@ public class API {
 			}
 			else if(luachonAPI==3) {
 				System.out.println("3: Edit Account");
+				
+				
+				
 			}
 			else if(luachonAPI==4) {
 				System.out.println("4: Logout");
@@ -102,9 +106,6 @@ public class API {
 			}
 			else if(luachonAPI==13) {
 				System.out.println("13: Create Comment");
-				CreateComment crtcmt =new CreateComment();
-				crtcmt.test1();
-				crtcmt.test2();
 				
 			}
 			else if(luachonAPI==14) {
