@@ -49,6 +49,7 @@ import org.testng.Assert;
      }
 
      public void Logout1() {
+         System.out.println("Logout test 1");
          this.getAccessToken("auto@gmail.com", "123456");
          this.callAPI(access_token);
          System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -58,6 +59,7 @@ import org.testng.Assert;
      }
 
      public void Logout2() {
+      System.out.println("Logout test 2");
          this.getAccessToken("ndh@gmail.com", "111");
          this.callAPI(access_token);
          System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
