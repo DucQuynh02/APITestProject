@@ -42,7 +42,7 @@ public class GetListComments {
                         .contentType("application/json")
                         .body(request)
                         .when()
-                        .get("comments/" + auctionsID);
+                        .get("api/comments" + auctionsID);
 
         JSONObject rep = new JSONObject(response.getBody().asString());
         this.codeResponse = rep.get("code").toString();
