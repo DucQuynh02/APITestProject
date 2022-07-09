@@ -28,6 +28,7 @@ import autotest.GetNews;
 import autotest.GetDetailAuction;
 import autotest.AcceptMaxBid;
 import autotest.SignUp;
+import autotest.ListAuctionByUser;
 
 
 public class ChooseTest {
@@ -290,7 +291,40 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==7) {
 			System.out.println("7: Get List Auctions By User");
-
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: List auctions by user test 1: correct data ");
+			System.out.println("2: List auctions by user test 2: random StatusID");
+			System.out.println("3: List auctions by user test 3: not Logged");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			ListAuctionByUser lau = new ListAuctionByUser();
+			if(luachonTest==0) {
+			lau.ListAuctionByUser1();
+			lau.ListAuctionByUser2();
+			lau.ListAuctionByUser3();
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
+			else if(luachonTest==6) {
+				test.Test6();
+				}
+			else if(luachonTest==7) {
+				test.Test7();
+				}
 		}
 		else if(luachonAPI==8) {
 			System.out.println("8: Get List Auctions By Type");
