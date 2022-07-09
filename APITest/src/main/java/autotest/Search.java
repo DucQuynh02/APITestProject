@@ -8,14 +8,14 @@ import org.testng.Assert;
 
 import io.restassured.response.Response;
 
-public class Search  {
-    private int codeResponse;
+public class Search {
+    private String codeResponse;
     private String messageResponse;
     private String dataResponse;
     private String access_token;
 
     public void getAccessToken(String email, String password) {
-        baseURI = Constant.BASEURI;
+        baseURI = Constant.BaseURL;
 
         LoginTest login = new LoginTest();
         String currentAccount = login.creRequest(email, password);
@@ -33,8 +33,8 @@ public class Search  {
         return req.toString();
     }
 
-    public void callAPI( String request) {
-        baseURI = Constant.BASEURI;
+    public void callAPI(String request) {
+        baseURI = Constant.BaseURL;
         Response response =
                 given()
                         .header("Authorization", "Bearer" + access_token)
@@ -44,30 +44,59 @@ public class Search  {
                         .get("api/search");
 
         JSONObject rep = new JSONObject(response.getBody().asString());
-        this.codeResponse = Integer.parseInt(rep.get("code").toString());
+        this.codeResponse = rep.get("code").toString();
         this.messageResponse = rep.get("message").toString();
         this.dataResponse = rep.get("data").toString();
     }
 
-    void test1() {
-
-        //Unit 1
-        try {
-            String request = this.creRequest(
-                    "100"
-                    , "1"
-            );
-            String email = "ccc@gmail.com";
-            String password = "123456";
-            this.callAPI(request);
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 1: Passed");
-            System.out.println("Code: 1000\nMessage: OK");
-            System.out.println(this.dataResponse);
-        } catch (AssertionError e) {
-            System.out.println("Unit 1: Failed");
-        }
-
-        }
+    public void Search1() {
+        System.out.println("Search test 1: Correct data");
+        String rq = this.creRequest("1", "3");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
+
+    public void Search2() {
+        System.out.println("Get list auctions by status test 2: type null");
+        String rq = this.creRequest("2", "");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void Search3() {
+        System.out.println("Search test 3: key null");
+        String rq = this.creRequest("1", "2");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void Search4() {
+        System.out.println("Get list auctions by status test 3: tim kiem theo gia khoi diem");
+        this.access_token = "";
+        String rq = this.creRequest("1", "1000");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void Search5() {
+        System.out.println("Search test 4:tim kiem theo thoi gian bat dau cua phien dau gia");
+        this.access_token = "";
+        String rq = this.creRequest("2", "12h");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+}
