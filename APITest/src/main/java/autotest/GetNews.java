@@ -11,7 +11,7 @@ import io.restassured.response.Response;
 
 public class GetNews {
 
-    private int codeResponse;
+    private String codeResponse;
     private String messageResponse;
     private String dataResponse;
     private String access_token;
@@ -35,7 +35,7 @@ public class GetNews {
 
 
     public void callAPI(String access_token, String news) {
-        baseURI = Constant.BASEURI;
+        baseURI = Constant.BaseURL;
         Response response =
                 given()
                         .header("Authorization", "Bearer" + access_token)
@@ -45,65 +45,38 @@ public class GetNews {
                         .get("api/news");
 
         JSONObject rep = new JSONObject(response.getBody().asString());
-        this.codeResponse = Integer.parseInt(rep.get("code").toString());
+        this.codeResponse = rep.get("code").toString();
         this.messageResponse = rep.get("message").toString();
         this.dataResponse = rep.get("data").toString();
     }
 
-    void test1() {
-        System.out.println("Test 1 in GetNews API: Input is numeric value, the code should be 1000 and message is OK:");
-
-        //Unit 1
-        try {
-            String email = "ccc@gmail.com";
-            String password = "111";
-            String auctionID = "1";
-
-            String input_news = this.creRequest("1", "1");
-            this.callAPI(access_token, input_news);
-
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 1: Passed");
-        } catch (AssertionError e) {
-            System.out.println("Unit 1: Failed");
-        }
+    public void N1() {
+        System.out.println("Get list auctions by status test 1: Correct data");
+        String rq = this.creRequest("1", "3");
+        this.callAPI(rq, "/1");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
 
-    void test2() {
-        System.out.println("Test 2 in GetNews API: Input is null, the code should be 1000 and message is OK");
-
-        // Unit 2
-        try {
-            String email = "ccc@gmail.com";
-            String password = "111";
-            String auctionID = "1";
-
-            String input_news = this.creRequest("", "");
-            this.callAPI(access_token, input_news);
-
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 2: Passed");
-        } catch (AssertionError e) {
-            System.out.println("Unit 2: Failed");
-        }
+    public void N2() {
+        System.out.println("Get list auctions by status test 2: index null");
+        String rq = this.creRequest("2", "");
+        this.callAPI(rq, "/2");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
 
-    void test3() {
-        System.out.println("Test 3 in GetNews API: A non-numeric value encountered (500 Internal Server Error)");
-
-        // Unit 3
-        try {
-            String email = "ccc@gmail.com";
-            String password = "111";
-            String auctionID = "1";
-            String input_news = this.creRequest("huy", "huy");
-            this.callAPI(access_token, input_news);
-            System.out.println("Unit 3: Failed");
-        } catch (JSONException e) {
-            System.out.print("Unit 3: Passed");
-
-        }
+    public void N3() {
+        System.out.println("Get list auctions by status test 3: count null");
+        String rq = this.creRequest("1", "2");
+        this.callAPI(rq, "/3");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
 }
