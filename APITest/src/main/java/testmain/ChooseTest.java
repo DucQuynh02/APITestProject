@@ -204,72 +204,72 @@ public class ChooseTest {
 			sc.nextLine();
 			EditAccount test = new EditAccount();
 			if(luachonTest==0) {
-			test.Test1();
-			test.Test2();
-			test.Test3();
-			test.Test4();
-			test.Test5();
-			test.Test6();
-			test.Test7();
-			test.Test8();
-			test.Test9();
-			test.Test10();
-			test.Test11();
-			test.Test12();
-			test.Test13();
-			test.Test14();
-			test.Test15();
-			test.Test16();
+			test.test1();
+			test.test2();
+			test.test3();
+			test.test4();
+			test.test5();
+			test.test6();
+			test.test7();
+			test.test8();
+			test.test9();
+			test.test10();
+			test.test11();
+			test.test12();
+			test.test13();
+			test.test14();
+			test.test15();
+			test.test16();
 			
 			}
 			else if(luachonTest==1) {
-				test.Test1();
+				test.test1();
 				}
 			else if(luachonTest==2) {
-				test.Test2();
+				test.test2();
 				}
 			else if(luachonTest==3) {
-				test.Test3();
+				test.test3();
 				}
 			else if(luachonTest==4) {
-				test.Test4();
+				test.test4();
 				}
 			else if(luachonTest==5) {
-				test.Test5();
+				test.test5();
 				}
 			else if(luachonTest==6) {
-				test.Test6();
+				test.test6();
 				}
 			else if(luachonTest==7) {
-				test.Test7();
+				test.test7();
 				}
 			else if(luachonTest==8) {
-				test.Test8();
-				}
+				test.test8();
+			        }
 			else if(luachonTest==9) {
-				test.Test9();
+				test.test9();
 				}
 			else if(luachonTest==10) {
-				test.Test10();
+				test.test10();
 				}
 			else if(luachonTest==11) {
 				test.Test11();
 				}
 			else if(luachonTest==12) {
-				test.Test12();
+				test.test12();
 				}
 			else if(luachonTest==13) {
-				test.Test13();
+				test.test13();
 				}
 			else if(luachonTest==14) {
-				test.Test14();
+				test.test14();
 				}
 			else if(luachonTest==15) {
-				test.Test15();
+				test.test15();
 				}
 			else if(luachonTest==16) {
-					test.Test16();
-					}
+				test.test16();
+				}
 		}
 		else if(luachonAPI==4) {
 			System.out.println("4: Logout");
@@ -406,34 +406,34 @@ public class ChooseTest {
 		sc.nextLine();
 		GetListAuctionByType test = new GetListAuctionByType();
 		if(luachonTest==0) {
-		test.Test1();
-		test.Test2();
-		test.Test3();
-		test.Test4();
-		test.Test5();
-		test.Test6();
-		test.Test7();
+		test.test1();
+		test.test2();
+		test.test3();
+		test.test4();
+		test.test5();
+		test.test6();
+		test.test7();
 		}
 		else if(luachonTest==1) {
-			test.Test1();
+			test.test1();
 			}
 		else if(luachonTest==2) {
-			test.Test2();
+			test.test2();
 			}
 		else if(luachonTest==3) {
-			test.Test3();
+			test.test3();
 			}
 		else if(luachonTest==4) {
-			test.Test4();
+			test.test4();
 			}
 		else if(luachonTest==5) {
-			test.Test5();
+			test.test5();
 			}
 		else if(luachonTest==6) {
-			test.Test6();
+			test.test6();
 			}
 		else if(luachonTest==7) {
-			test.Test7();
+			test.test7();
 			}
 	}
 		else if(luachonAPI==9) {
