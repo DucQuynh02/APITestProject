@@ -53,7 +53,7 @@ public class GetNews {
     public void N1() {
         System.out.println("Get news test 1: Correct data");
         String rq = this.creRequest("1", "3");
-        this.callAPI(rq, "/1");
+        this.callAPI(rq, "/417");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
@@ -63,7 +63,7 @@ public class GetNews {
     public void N2() {
         System.out.println("Get news test 2: index null");
         String rq = this.creRequest("2", "");
-        this.callAPI(rq, "/2");
+        this.callAPI(rq, "/651");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
@@ -73,7 +73,7 @@ public class GetNews {
     public void N3() {
         System.out.println("Get news test 3: count null");
         String rq = this.creRequest("1", "2");
-        this.callAPI(rq, "/3");
+        this.callAPI(rq, "/568");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
