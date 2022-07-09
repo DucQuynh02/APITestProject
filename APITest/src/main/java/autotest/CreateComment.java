@@ -87,7 +87,7 @@ public class CreateComment {
 		String rq=this.creRequest("1","1");
 		this.callAPI(rq, "/654");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1008") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -98,7 +98,7 @@ public class CreateComment {
 		String rq=this.creRequest("1","1");
 		this.callAPI(rq, "/651");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1008") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
