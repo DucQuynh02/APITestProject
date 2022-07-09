@@ -391,11 +391,51 @@ public class ChooseTest {
 				}
 
 		}
-		else if(luachonAPI==8) {
-			System.out.println("8: Get List Auctions By Type");
-			
-			
+				else if(luachonAPI==8) {
+		System.out.println("8: Get List Auction By Type");
+		System.out.println("----------Mời chọn Test Case :----------");
+		System.out.println("0: All unit test ");
+		System.out.println("1: Get List Auction By Type test 1: Correct data ");
+		System.out.println("2: Get List Auction By Type test 2: index null");
+		System.out.println("3: Get List Auction By Type test 3: count null");
+		System.out.println("4: Get List Auction By Type test 4: Log in");
+		System.out.println("5: Get List Auction By Type test 5: Outdate token");
+		System.out.println("6: Get List Auction By Type test 6: Type: đã bán");
+		System.out.println("7: Get List Auction By Type test 7: TypeID is not exist");
+		luachonTest = sc.nextInt();
+		sc.nextLine();
+		GetListAuctionByType test = new GetListAuctionByType();
+		if(luachonTest==0) {
+		test.Test1();
+		test.Test2();
+		test.Test3();
+		test.Test4();
+		test.Test5();
+		test.Test6();
+		test.Test7();
 		}
+		else if(luachonTest==1) {
+			test.Test1();
+			}
+		else if(luachonTest==2) {
+			test.Test2();
+			}
+		else if(luachonTest==3) {
+			test.Test3();
+			}
+		else if(luachonTest==4) {
+			test.Test4();
+			}
+		else if(luachonTest==5) {
+			test.Test5();
+			}
+		else if(luachonTest==6) {
+			test.Test6();
+			}
+		else if(luachonTest==7) {
+			test.Test7();
+			}
+	}
 		else if(luachonAPI==9) {
 			System.out.println("9: Get Detail Auction");
 			System.out.println("----------Mời chọn Test Case :----------");
