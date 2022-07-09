@@ -17,6 +17,11 @@ import autotest.CreateComment;
 import autotest.GetListBrands;
 import autotest.GetSlider;
 import autotest.TotalLikesOfAuction;
+import autotest.LogoutTest;
+import autotest.GetListComments;
+import autotest.GetNews;
+import autotest.GetDetailAuction;
+import autotest.AcceptMaxBid;
 
 
 public class ChooseTest {
