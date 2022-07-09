@@ -14,10 +14,6 @@ public class GetListBrands {
 	private String messageResponse;
 	private String dataResponse;
 
-	public String creRequest(String... request) {		
-		return null;
-	}
-
 	public void callAPI(String request) {
 		baseURI = Constant.BaseURL;
 		
