@@ -116,8 +116,7 @@ public class CreateComment {
 	public void test7() {
 		System.out.println("Get Create comment test 7: Chưa đăng nhập");
 		this.access_token="";
-		String rq=this.creRequest("","");
-		this.callAPI(rq, "");
+		this.callAPI("", "");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
