@@ -12,12 +12,12 @@ import static io.restassured.RestAssured.baseURI;
 public class GetDetailAuction {
 
     private String access_token;
-    private int codeResponse;
+    private String codeResponse;
     private String messageResponse;
     private String dataResponse;
 
     public void getAccessToken(String email, String password) {
-        baseURI = Constant.BASEURI;
+        baseURI = Constant.BaseURL;
 
         LoginTest login = new LoginTest();
         String currentAccount = login.creRequest(email, password);
@@ -28,114 +28,72 @@ public class GetDetailAuction {
     }
 
     public String creRequest(String... request) {
-        JSONObject req = new JSONObject();
-        req.put("index", request[0]);
-        req.put("count", request[1]);
-        return req.toString();
+        return null;
     }
 
-    public void callAPI(String request, String auctionID) {
-        baseURI = Constant.BASEURI;
+    public void callAPI(String auctionID) {
+        baseURI = Constant.BaseURL;
 
         Response response =
                 given()
                         .header("Authorization", "Bearer" + this.access_token)
                         .contentType("application/json")
-                        .body(request)
+
                         .when()
                         .get("api/auctions/detail" + auctionID);
 
         JSONObject rep = new JSONObject(response.getBody().asString());
-        this.codeResponse = Integer.parseInt(rep.get("code").toString());
+        this.codeResponse = rep.get("code").toString();
         this.messageResponse = rep.get("message").toString();
         this.dataResponse = rep.get("data").toString();
     }
-    void test1() {
-        System.out.println("Test1 in GetDetailAuction API: The code should be 1000 and message is Ok when passing correctly");
-        String email ="ccc@gmail.com";
-        String password ="111" ;
-        this.getAccessToken(email, password);
-        //unit 1
-        try{
-            String request = this.creRequest("","");
-            this.callAPI(request, "");
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 1: Passed");
-            System.out.println(this.dataResponse);
-        } catch (AssertionError e) {
-            System.out.println("Unit 1: Failed");}
-            catch (JSONException j) {
-                System.out.println("Unit 1: Failed (this auctionID is not exist)");
-            }
-
-        //Unit 2
-        try {
-            String requestEdit = this.creRequest(
-                    ""
-                    , ""
-            );
-            this.callAPI(requestEdit, "/2");
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 2: Passed");
-        } catch (AssertionError e) {
-            System.out.println("Unit 2: Failed");
-        } catch (JSONException j) {
-            System.out.println("Unit 2: Failed (this auctionID is not exist)");
-        }
-
-        //Unit 3
-        try {
-            String requestEdit = this.creRequest(
-                    ""
-                    , ""
-            );
-            this.callAPI(requestEdit, "/3");
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 3: Passed");
-        } catch (AssertionError e) {
-            System.out.println("Unit 3: Failed");
-        } catch (JSONException j) {
-            System.out.println("Unit 3: Failed (this auctionID is not exist");
-        }
-
-        //Unit 4
-        try {
-            String requestEdit = this.creRequest(
-                    ""
-                    , ""
-            );
-            this.callAPI(requestEdit, "/4");
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 4: Passed");
-        } catch (AssertionError e) {
-            System.out.println("Unit 4: Failed");
-        } catch (JSONException j) {
-            System.out.println("Unit 4: Failed (this auctionID is not exist)");
-        }
-
-        //Unit 5
-        try {
-            String requestEdit = this.creRequest(
-                    ""
-                    , ""
-            );
-            this.callAPI(requestEdit, "/5");
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Unit 5: Passed");
-        } catch (AssertionError e) {
-            System.out.println("Unit 5: Failed");
-        } catch (JSONException j) {
-            System.out.println("Unit 5: Failed (this auctionID is not exist)");
-        }
-
-        //End
-        System.out.println("Finish Test 1 in GetDetailAuction");
+    public void DA1() {
+        System.out.println("Get detail auctions test 1: Dang dien ra");
+        this.callAPI("/1")
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void DA2() {
+        System.out.println("Get detail auctions test 2: Sap dien ra");
+        this.callAPI("/2")
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void DA3() {
+        System.out.println("Get detail auctions test 3:Da ket thuc ");
+        this.callAPI("/3")
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void DA4() {
+        System.out.println("Get detail auctions test 4: Dang cho phe duyet");
+        this.callAPI("/4")
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void DA5() {
+        System.out.println("Get detail auctions test 5: Da bi tu choi");
+        this.callAPI("/5")
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void DA6() {
+        System.out.println("Get detail auctions test 1: Da ban");
+        this.callAPI("/6")
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
 }
-
 
