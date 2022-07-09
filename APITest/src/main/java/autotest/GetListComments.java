@@ -49,12 +49,12 @@ public class GetListComments {
         this.messageResponse = rep.get("message").toString();
         this.dataResponse = rep.get("data").toString();
     }
-
     public void LC1() {
-        System.out.println(" Get List Comments test 1: The code should be 1000 and message is OK");
-        this.callAPI("", "/1");
-        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
-        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+        System.out.println("Get list comments test 1: Correct data");
+        String rq= this.creRequest("1","3");
+        this.callAPI(rq,"/1");
+        System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+        if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
         else System.out.println("Fail");
     }
