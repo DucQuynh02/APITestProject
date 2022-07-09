@@ -79,4 +79,45 @@ public class GetListAuctionByType {
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
+	
+	public void test4() {
+		System.out.println("Get list auctions by type test 4: Log in");
+		this.getAccessToken("tu.lx20200549@gmail.com", "20200549");
+		String rq=this.creRequest("2","1");
+		this.callAPI(rq, "/4");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	public void test5() {
+		System.out.println("Get list auctions by type test 5: Outdate token");
+		this.access_token="\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hdWN0aW9ucy1hcHAtMi5oZXJva3VhcHAuY29tXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU3MDg3OTE1LCJleHAiOjE2NTc0NDc5MTUsIm5iZiI6MTY1NzA4NzkxNSwianRpIjoiWFVhMjJobUE2YkN0aWdGVyIsInN1YiI6NDU2LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3RS48RhssXwTNdnfKAkLbLj_HA3RaQoQo1xtVrlAOSA";
+		String rq=this.creRequest("1","2");
+		this.callAPI(rq, "/5");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void LAS6() {
+		System.out.println("Get list auctions by type test 6: Type: đã bán");
+		this.access_token="";
+		String rq=this.creRequest("1","0");
+		this.callAPI(rq, "/6");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+	}
+	public void LAS7() {
+		System.out.println("Get list auctions by type test 7: Type Id is not exist");
+		this.access_token="";
+		String rq=this.creRequest("2","1");
+		this.callAPI(rq, "/10");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
 }
