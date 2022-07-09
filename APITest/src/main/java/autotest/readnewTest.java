@@ -44,8 +44,8 @@ public class readnewTest {
 		dataResponse = rep.get("data").toString();
 		}
 
-	public void Test() {
-		System.out.println("Readnew test : ");
+	public void Test1() {
+		System.out.println("Readnew test : success");
 		this.getAccessToken("anhquan582001@gmail.com", "123456");
 		this.callAPI("1");
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
@@ -53,5 +53,13 @@ public class readnewTest {
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 		}
-
+	
+	public void Test2() {
+		System.out.println("Readnew test : not login");
+		this.callAPI("1");
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		System.out.println("Fail");
+		else System.out.println("Finished! Satisfied!");
+		}
 }

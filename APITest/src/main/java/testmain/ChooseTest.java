@@ -3,7 +3,10 @@ package testmain;
 import java.util.Scanner;
 
 import autotest.Constant;
+import autotest.CreateAuctionsTest;
+import autotest.CreateBidsTest;
 import autotest.CreateComment;
+import autotest.DeletecommentTest;
 import autotest.EditAuction;
 import autotest.GetListBids;
 import autotest.GetNotifications;
@@ -17,11 +20,14 @@ import autotest.CreateComment;
 import autotest.GetListBrands;
 import autotest.GetSlider;
 import autotest.TotalLikesOfAuction;
+import autotest.get_list_auctions;
+import autotest.readnewTest;
 import autotest.LogoutTest;
 import autotest.GetListComments;
 import autotest.GetNews;
 import autotest.GetDetailAuction;
 import autotest.AcceptMaxBid;
+
 
 
 public class ChooseTest {
@@ -103,7 +109,48 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==5) {
 			System.out.println("5: Get List Auctions");
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: List auctions test 1: all auctions ");
+			System.out.println("2: List auctions test 2: auction going on");
+			System.out.println("3: List auctions test 3: auction coming up");
+			System.out.println("4: List auctions test 4: auction end");
+			System.out.println("5: List auctions test 5: auction waiting");
+			System.out.println("6: List auctions test 6: auction deny");
+			System.out.println("7: List auctions test 7: auction sell success");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			get_list_auctions test = new get_list_auctions();
+			if(luachonTest==0) {
+			test.Test1();
+			test.Test2();
+			test.Test3();
+			test.Test4();
+			test.Test5();
+			test.Test6();
+			test.Test7();
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
+			else if(luachonTest==6) {
+				test.Test6();
+				}
+			else if(luachonTest==7) {
+				test.Test7();
+				}
 		}
 		else if(luachonAPI==6) {
 			System.out.println("API: Get List Auctions by Status ");
@@ -164,7 +211,64 @@ public class ChooseTest {
 			System.out.println("9: Get Detail Auction");
 		}
 		else if(luachonAPI==10) {
-			System.out.println("10: Create Auction ");
+			System.out.println("5: Create Auctions");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: List auctions test 1: create success ");
+			System.out.println("2: List auctions test 2: title exist");
+			System.out.println("3: List auctions test 3: category_id null");
+			System.out.println("4: List auctions test 4: start date null");
+			System.out.println("5: List auctions test 5: start date befor present time");
+			System.out.println("6: List auctions test 6: end date null");
+			System.out.println("7: List auctions test 7: end date earlier than start date");
+			System.out.println("8: List auctions test 8: title null");
+			System.out.println("9: List auctions test 9: start date incorrect format");
+			System.out.println("10: List auctions test 10: end date incorrect format");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			CreateAuctionsTest test = new CreateAuctionsTest();
+			if(luachonTest==0) {
+			test.Test1();
+			test.Test2();
+			test.Test3();
+			test.Test4();
+			test.Test5();
+			test.Test6();
+			test.Test7();
+			test.Test8();
+			test.Test9();
+			test.Test10();
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
+			else if(luachonTest==6) {
+				test.Test6();
+				}
+			else if(luachonTest==7) {
+				test.Test7();
+				}
+			else if(luachonTest==8) {
+				test.Test8();
+				}
+			else if(luachonTest==9) {
+				test.Test9();
+				}
+			else if(luachonTest==10) {
+				test.Test10();
+				}
 			
 		}
 		else if(luachonAPI==11) {
@@ -223,6 +327,38 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==15) {
 			System.out.println("15: Create Bid");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Create bid test 1: price lower than present price ");
+			System.out.println("2: Create bid test 2: price null");
+			System.out.println("3: Create bid test 3: auction out date");
+			System.out.println("4: Create bid test 4: auction out date");
+			System.out.println("5: Create bid test 5: create bid success");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			CreateBidsTest test = new CreateBidsTest();
+			if(luachonTest==0) {
+			test.Test1();
+			test.Test2();
+			test.Test3();
+			test.Test4();
+			test.Test5();
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
 			
 		}
 		else if(luachonAPI==16) {
@@ -322,7 +458,24 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==25) {
 			System.out.println("25: Read New");
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Read new test 1: success");
+			System.out.println("2: Read new test 2: not login");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			readnewTest test = new readnewTest();
+			if(luachonTest==0) {
+			test.Test1();
+			test.Test2();
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+
 		}
 		else if(luachonAPI==26) {
 			System.out.println("26: Get Notifications");
@@ -377,8 +530,12 @@ public class ChooseTest {
 			search.Search5();
 
 		}
+		
 		else if(luachonAPI==30) {
 			System.out.println("30: Delete Comment");
+			System.out.println("Delete comment test: can't delete other people's comment");
+			DeletecommentTest test = new DeletecommentTest();
+			test.Test();
 		}
 		else  {
 			System.out.println("Lựa chọn lỗi");			

@@ -102,4 +102,6 @@ public class CreateBidsTest {
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
+	
+	
 }

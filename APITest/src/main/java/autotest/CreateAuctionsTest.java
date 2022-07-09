@@ -137,4 +137,26 @@ public class CreateAuctionsTest {
 		else System.out.println("Fail");
 	}
 	
+	public void Test9() {
+		System.out.println("Create_auctions test 9: start date incorrect format");
+		this.getAccessToken("anhquan582001@gmail.com", "123456");
+		String rq = this.creRequest("1", "2023-13-1", "2023-3-1", "dau gia tu thien 6");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void Test10() {
+		System.out.println("Create_auctions test 9: end date incorrect format");
+		this.getAccessToken("anhquan582001@gmail.com", "123456");
+		String rq = this.creRequest("1", "2023-1-1", "2023-13-1", "dau gia tu thien 7");
+		this.callAPI(rq);
+		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
 }
