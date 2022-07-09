@@ -10,7 +10,7 @@ import autotest.GetNotifications;
 import autotest.LikeAuction;
 import autotest.ListAuctionStatusTest;
 import autotest.LoginTest;
-import autotest.SignUpTest;
+
 
 public class API {
 	public void menuAPI() {
@@ -102,7 +102,10 @@ public class API {
 			}
 			else if(luachonAPI==13) {
 				System.out.println("13: Create Comment");
-
+				CreateComment crtcmt =new CreateComment();
+				crtcmt.test1();
+				crtcmt.test2();
+				
 			}
 			else if(luachonAPI==14) {
 				System.out.println("14: Get List Comment");

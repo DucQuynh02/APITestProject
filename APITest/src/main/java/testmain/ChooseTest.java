@@ -10,7 +10,7 @@ import autotest.GetNotifications;
 import autotest.LikeAuction;
 import autotest.ListAuctionStatusTest;
 import autotest.LoginTest;
-import autotest.SignUpTest;
+
 
 public class ChooseTest {
 	public void menuTest() {
@@ -65,7 +65,6 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==2) {	
 			System.out.println("2: Sign Up");
-			SignUpTest.SignUp1();
 		}
 		else if(luachonAPI==3) {
 			System.out.println("3: Edit Account");
@@ -78,11 +77,50 @@ public class ChooseTest {
 			
 		}
 		else if(luachonAPI==6) {
-			System.out.println("6: Get List Auctions By Status");				
+			System.out.println("API: Get List Auctions by Status ");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Get list auctions by status test 1: Correct data ");
+			System.out.println("2: Get list auctions by status test 2: index null");
+			System.out.println("3: Get list auctions by status test 3: count null");
+			System.out.println("4: Get list auctions by status test 4: Log in");
+			System.out.println("5: Get list auctions by status test 5: Outdate token");
+			System.out.println("6: Get list auctions by status test 6: Status: đã bán");
+			System.out.println("7: Get list auctions by status test 7: Status Id is not exist");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
 			ListAuctionStatusTest las = new ListAuctionStatusTest();
-			las.LAS1();
-			las.LAS2();
-			las.LAS3();
+			if(luachonTest==0) {
+				las.LAS1();
+				las.LAS2();
+				las.LAS3();
+				las.LAS4();
+				las.LAS5();
+				las.LAS6();
+				las.LAS7();
+			}
+			else if(luachonTest==1) {
+				las.LAS1();
+				}
+			else if(luachonTest==2) {
+				las.LAS2();
+				}
+			else if(luachonTest==3) {
+				las.LAS3();
+				}
+			else if(luachonTest==4) {
+				las.LAS4();
+				}
+			else if(luachonTest==5) {
+				las.LAS5();
+				}
+			else if(luachonTest==6) {
+				las.LAS6();
+				}
+			else if(luachonTest==7) {
+				las.LAS7();
+				}		
+			
 		}
 		else if(luachonAPI==7) {
 			System.out.println("7: Get List Auctions By User");
