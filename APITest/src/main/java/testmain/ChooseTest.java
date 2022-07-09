@@ -10,6 +10,12 @@ import autotest.GetNotifications;
 import autotest.LikeAuction;
 import autotest.ListAuctionStatusTest;
 import autotest.LoginTest;
+import autotest.EditAccount;
+import autotest.GetListAuctionByType;
+import autotest.CreateComment;
+import autotest.GetListBrands;
+import autotest.GetSlider;
+import autotest.TotalLikesOfAuction;
 
 
 public class ChooseTest {
