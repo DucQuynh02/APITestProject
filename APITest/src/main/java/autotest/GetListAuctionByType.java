@@ -1,22 +1,21 @@
 package autotest;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import org.json.JSONObject;
-import org.testng.Assert;
 
-import io.restassured.response.Response;
-
+import com.google.gson.Gson;
+ 
 public class GetListAuctionByType {
-
 	private String access_token;
-	private Object codeResponse;
-	private Object messageResponse;
-	private Object dataResponse;
+	private String codeResponse;
+	private String messageResponse;
+	private String dataResponse;
 
 	public void getAccessToken(String email, String password) {
-		baseURI = "https://auctions-app-2.herokuapp.com/";
+		baseURI = Constant.BaseURL;
 		
 		LoginTest login = new LoginTest();
 		String currentAccount = login.creRequest(email, password);
@@ -25,16 +24,16 @@ public class GetListAuctionByType {
 		String access_token = data.getString("access_token").toString();
 		this.access_token = access_token;
 	}
-	
+
 	public String creRequest(String... request) {		
 		JSONObject req = new JSONObject();
 		req.put("index", request[0]);
 		req.put("count", request[1]);
 		return req.toString();
 	}
-	
+
 	public void callAPI(String request, String typeID) {
-		baseURI = "https://auctions-app-2.herokuapp.com/"; 
+		baseURI = Constant.BaseURL;
 		
 		Response response = 
 				given()
@@ -45,34 +44,39 @@ public class GetListAuctionByType {
 					.get("api/auctions/listAuctions" + typeID);
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
-		this.setCodeResponse(Integer.parseInt(rep.get("code").toString()));
-		this.setMessageResponse(rep.get("message").toString());
-		this.setDataResponse(rep.get("data").toString());
+		this.codeResponse = rep.get("code").toString();
+		this.messageResponse = rep.get("message").toString();
+		this.dataResponse = rep.get("data").toString();
 	}
 
-	public Object getCodeResponse() {
-		return codeResponse;
+	public void test1() {
+		System.out.println("Get list auctions by status test 1: Correct data");
+		String rq= this.creRequest("2","3");
+		this.callAPI(rq,"/1");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
 	}
-
-	public void setCodeResponse(Object codeResponse) {
-		this.codeResponse = codeResponse;
+	
+	public void test2() {
+		System.out.println("Get list auctions by status test 2: index null");
+		String rq=this.creRequest("2","");
+		this.callAPI(rq, "/4");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
 	}
-
-	public Object getMessageResponse() {
-		return messageResponse;
-	}
-
-	public void setMessageResponse(Object messageResponse) {
-		this.messageResponse = messageResponse;
-	}
-
-	public Object getDataResponse() {
-		return dataResponse;
-	}
-
-	public void setDataResponse(Object dataResponse) {
-		this.dataResponse = dataResponse;
+	
+	public void test3() {
+		System.out.println("Get list auctions by status test 3: count null");
+		String rq=this.creRequest("","1");
+		this.callAPI(rq, "/5");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
 	}
 }
-
-
