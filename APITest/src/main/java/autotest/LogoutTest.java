@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 
 import org.json.JSONObject;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
@@ -47,11 +48,12 @@ import org.testng.Assert;
          this.messageResponse = rep.get("message").toString();
          this.dataResponse = rep.get("data").toString();
      }
-
+     
+     
      public void Logout1() {
-         System.out.println("Logout test 1");
-         this.getAccessToken("auto@gmail.com", "123456");
-         this.callAPI(access_token);
+         System.out.println("Logout test 1: Log out");
+         this.getAccessToken("vdq118@gmail.com", "vdq118");
+         this.callAPI(this.access_token);
          System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
          if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
              System.out.println("Finished! Satisfied!");
