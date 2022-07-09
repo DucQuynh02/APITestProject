@@ -52,12 +52,21 @@ import org.testng.Assert;
      }
 
      public void Logout1() {
-         System.out.println("Logout test 1:Logout thanh cong");
-         String rq = this.creRequest("ndh@gmail.com", "123");
-         this.callAPI(rq);
+         String access_token = this.creRequest("auto@gmail.com", "123456");
+         this.callAPI(access_token);
          System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
          if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
              System.out.println("Finished! Satisfied!");
          else System.out.println("Fail");
      }
+
+     public void Logout2() {
+         String access_token = this.creRequest("ndh@gmail.com", "111");
+         this.callAPI(access_token);
+         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+             System.out.println("Finished! Satisfied!");
+         else System.out.println("Fail");
+     }
+     
  }
