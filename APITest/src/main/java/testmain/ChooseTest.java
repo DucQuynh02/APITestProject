@@ -3,6 +3,7 @@ package testmain;
 import java.util.Scanner;
 
 import autotest.Constant;
+import autotest.ContactUsTest;
 import autotest.CreatItem;
 import autotest.CreateAuctionsTest;
 import autotest.CreateBidsTest;
@@ -683,6 +684,70 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==20) {
 			System.out.println("20: Contact Us");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Contact us test 1: success ");
+			System.out.println("2: Contact us test 2: name null");
+			System.out.println("3: Contact us test 3: phone null");
+			System.out.println("4: Contact us test 4: email null");
+			System.out.println("5: Contact us test 5: content null");
+			System.out.println("6: Contact us test 6: report_type null");
+			System.out.println("7: Contact us test 7: report_type invalid");
+			System.out.println("8: Contact us test 8: phone more than 60 characters");
+			System.out.println("9: Contact us test 9: name more than 255 characters");
+			System.out.println("10: Contact us test 10: email more than 255 characters");
+			System.out.println("11: Contact us test 11: email incorrect format");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			ContactUsTest test = new ContactUsTest();
+			if(luachonTest==0) {
+			test.Test1();
+			test.Test2();
+			test.Test3();
+			test.Test4();
+			test.Test5();
+			test.Test6();
+			test.Test7();
+			test.Test8();
+			test.Test9();
+			test.Test10();
+			test.Test11();
+			
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
+			else if(luachonTest==6) {
+				test.Test6();
+				}
+			else if(luachonTest==7) {
+				test.Test7();
+				}
+			else if(luachonTest==8) {
+				test.Test8();
+				}
+			else if(luachonTest==9) {
+				test.Test9();
+				}
+			else if(luachonTest==10) {
+				test.Test10();
+				}
+			else if(luachonTest==11) {
+				test.Test11();
+				}
+			
 		}
 		else if(luachonAPI==21) {
 			System.out.println("21: Like Auction");

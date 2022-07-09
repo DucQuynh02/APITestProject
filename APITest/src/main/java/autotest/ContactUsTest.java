@@ -16,16 +16,7 @@ public class ContactUsTest {
 	private String messageResponse;
 	private String dataResponse;
 
-//	public void getAccessToken(String email, String password) {
-//		baseURI = Constant.BaseURL;
-//			
-//		LoginTest login = new LoginTest();
-//		String currentAccount = login.creRequest(email, password);
-//		login.callAPI(currentAccount);
-//		JSONObject data = new JSONObject(login.getDataResponse());
-//		String access_token = data.getString("access_token").toString();
-//		this.access_token = access_token;
-//		}
+
 		
 	public String creRequest(String... request) {		
 		JSONObject req = new JSONObject();
