@@ -51,7 +51,7 @@ public class GetNews {
     }
 
     public void N1() {
-        System.out.println("Get list auctions by status test 1: Correct data");
+        System.out.println("Get news test 1: Correct data");
         String rq = this.creRequest("1", "3");
         this.callAPI(rq, "/1");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -61,7 +61,7 @@ public class GetNews {
     }
 
     public void N2() {
-        System.out.println("Get list auctions by status test 2: index null");
+        System.out.println("Get news test 2: index null");
         String rq = this.creRequest("2", "");
         this.callAPI(rq, "/2");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -71,7 +71,7 @@ public class GetNews {
     }
 
     public void N3() {
-        System.out.println("Get list auctions by status test 3: count null");
+        System.out.println("Get news test 3: count null");
         String rq = this.creRequest("1", "2");
         this.callAPI(rq, "/3");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
