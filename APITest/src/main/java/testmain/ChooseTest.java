@@ -467,9 +467,6 @@ public class ChooseTest {
 				da.DA1();
 				da.DA2();
 				da.DA3();
-				da.DA4();
-				da.DA5();
-				da.DA6();
 			}
 			else if(luachonTest==1) {
 				da.DA1();
