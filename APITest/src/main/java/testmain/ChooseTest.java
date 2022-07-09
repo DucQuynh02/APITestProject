@@ -110,73 +110,73 @@ public class ChooseTest {
 			sc.nextLine();
 			SignUp sg= new SignUp();
 			if(luachonTest==0) {
-			sg.SigUp1();
-			sg.SigUp2();
-			sg.SigUp3();
-			sg.SigUp4();
-			sg.SigUp5();
-			sg.SigUp6();
-			sg.SigUp7();
-			sg.SigUp8();
-			sg.SigUp9();
-			sg.SigUp10();
-			sg.SigUp11();
-			sg.SigUp12();
-			sg.SigUp13();
-			sg.SigUp14();
-			sg.SigUp15();
-			sg.SigUp16();
+			sg.SignUp1();
+			sg.SignUp2();
+			sg.SignUp3();
+			sg.SignUp4();
+			sg.SignUp5();
+			sg.SignUp6();
+			sg.SignUp7();
+			sg.SignUp8();
+			sg.SignUp9();
+			sg.SignUp10();
+			sg.SignUp11();
+			sg.SignUp12();
+			sg.SignUp13();
+			sg.SignUp14();
+			sg.SignUp15();
+			sg.SignUp16();
 			}
 			else if(luachonTest==1) {
-				sg.SigUp1();
+				sg.SignUp1();
 				}
 			else if(luachonTest==2) {
-				sg.SigUp2();
+				sg.SignUp2();
 				}
 			else if(luachonTest==3) {
-				sg.SigUp3();
+				sg.SignUp3();
 				}
 			else if(luachonTest==4) {
-				sg.SigUp4();
+				sg.SignUp4();
 				}
 			else if(luachonTest==5) {
-				sg.SigUp5();
+				sg.SignUp5();
 				}
 			else if(luachonTest==6) {
-				sg.SigUp6();
+				sg.SignUp6();
 				}
 			else if(luachonTest==7) {
-				sg.SigUp7();
+				sg.SignUp7();
 				}
 			else if(luachonTest==8) {
-				sg.SigUp8();
+				sg.SignUp8();
 				}
 			else if(luachonTest==9) {
-				sg.SigUp9();
+				sg.SignUp9();
 				}
 			else if(luachonTest==10) {
-				sg.SigUp10();
+				sg.SignUp10();
 				}
 			else if(luachonTest==11) {
-				sg.SigUp11();
+				sg.SignUp11();
 				}
 			else if(luachonTest==12) {
-				sg.SigUp12();
+				sg.SignUp12();
 				}
 			else if(luachonTest==13) {
-				sg.SigUp13();
+				sg.SignUp13();
 				}
 			else if(luachonTest==14) {
-				sg.SigUp14();
+				sg.SignUp14();
 				}
 			else if(luachonTest==15) {
-				sg.SigUp15();
+				sg.SignUp15();
 				}
 			else if(luachonTest==16) {
-				sg.SigUp16();
+				sg.SignUp16();
 				}
 			
-		}
+
 		}
 		else if(luachonAPI==3) {
 			System.out.println("3: Edit Account");
@@ -308,26 +308,15 @@ public class ChooseTest {
 			lau.ListAuctionByUser3();
 			}
 			else if(luachonTest==1) {
-				test.Test1();
+				lau.ListAuctionByUser1();
 				}
 			else if(luachonTest==2) {
-				test.Test2();
+				lau.ListAuctionByUser2();
 				}
 			else if(luachonTest==3) {
-				test.Test3();
+				lau.ListAuctionByUser3();
 				}
-			else if(luachonTest==4) {
-				test.Test4();
-				}
-			else if(luachonTest==5) {
-				test.Test5();
-				}
-			else if(luachonTest==6) {
-				test.Test6();
-				}
-			else if(luachonTest==7) {
-				test.Test7();
-				}
+
 		}
 		else if(luachonAPI==8) {
 			System.out.println("8: Get List Auctions By Type");
