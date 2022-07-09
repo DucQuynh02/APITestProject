@@ -119,7 +119,7 @@ public class CreateComment {
 		String rq=this.creRequest("","");
 		this.callAPI(rq, "");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
