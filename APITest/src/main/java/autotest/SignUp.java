@@ -242,11 +242,11 @@ public class SignUp {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	public void SignUp10() {
-		System.out.println("Signup test 10: If name > 255 ,code should be 1001");
+		System.out.println("Signup test 10: If name = null ,code should be 1001");
         String randomMail = email.getStringWithFixedLength(10) + "@gmail.com";
         String randomPass = email.getStringWithFixedLength(10);
         String randomName = email.getStringWithFixedLength(270);
-		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi",randomName,"0815023369","null");
+		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi","null","0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
@@ -256,7 +256,7 @@ public class SignUp {
 		
 	}
 	public void SignUp11() {
-		System.out.println("Signup test 11: If password == null ,code should be 1001");
+		System.out.println("Signup test 11: If password = null ,code should be 1001");
         String randomMail = email.getStringWithFixedLength(10) + "@gmail.com";
         String randomPass = email.getStringWithFixedLength(10);
         String randomName = email.getSaltString();
