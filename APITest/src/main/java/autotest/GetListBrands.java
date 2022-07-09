@@ -32,7 +32,7 @@ public class GetListBrands {
 		this.dataResponse = rep.get("data").toString();
 	}
 
-	public void LAS1() {
+	public void test1() {
 		System.out.println("Test 1 in GetListBrands API: The code should be 1000 and message is OK");
 		this.callAPI();
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
