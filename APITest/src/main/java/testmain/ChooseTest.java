@@ -325,6 +325,43 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==9) {
 			System.out.println("9: Get Detail Auction");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Get Detail Auction test 1: Dang dien ra ");
+			System.out.println("2: Get Detail Auction test 2: Sap dien ra");
+			System.out.println("3: Get Detail Auction test 3: Da ket thuc");
+			System.out.println("3: Get Detail Auction test 4: Dang cho phe duyet");
+			System.out.println("3: Get Detail Auction test 5: Da bi tu choi");
+			System.out.println("3: Get Detail Auction test 6: Da ban");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			GetDetailAuction da = new GetDetailAuction();
+			if(luachonTest==0) {
+				da.DA1();
+				da.DA2();
+				da.DA3();
+				da.DA4();
+				da.DA5();
+				da.DA6();
+			}
+			else if(luachonTest==1) {
+				da.DA1();
+			}
+			else if(luachonTest==2) {
+				da.DA2();
+			}
+			else if(luachonTest==3) {
+				da.DA3();
+			}
+			else if(luachonTest==4) {
+				da.DA4();
+			}
+			else if(luachonTest==5) {
+				da.DA5();
+			}
+			else if(luachonTest==6) {
+				da.DA6();
+			}
 		}
 		else if(luachonAPI==10) {
 			System.out.println("5: Create Auctions");
