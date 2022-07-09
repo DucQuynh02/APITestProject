@@ -483,9 +483,9 @@ public class ChooseTest {
 			System.out.println("0: All unit test ");
 			System.out.println("1: Accepe Max Bid test 1: chua dang nhap ");
 			System.out.println("2: Accepe Max Bid test 2: khong co quyen");
-			System.out.println("3: Accepe Max Bid 3: phien dau gia chua ket thuc");
-			System.out.println("4: Accepe Max Bid 4: da ban");
-			System.out.println("5: Accepe Max Bid 5: chua co tra gia nao");
+			System.out.println("3: Accepe Max Bid test 3: phien dau gia chua ket thuc");
+			System.out.println("4: Accepe Max Bid test 4: da ban");
+			System.out.println("5: Accepe Max Bid test 5: chua co tra gia nao");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			AcceptMaxBidTest amb = new AcceptMaxBidTest();
