@@ -29,7 +29,6 @@ public class CreateComment {
 		JSONObject req = new JSONObject();
 		req.put("content", request[0]);
 		req.put("comment_last_id", request[1]);
-		req.put("auctionID", request[2]);
 		return req.toString();
 	}
 
@@ -52,10 +51,10 @@ public class CreateComment {
 	public void test1() {
 		System.out.println("Get Create comment test 1: Correct data");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq= this.creRequest("ye","ey", "0");
+		String rq= this.creRequest("ye","ey");
 		this.callAPI(rq,"/0");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -63,10 +62,10 @@ public class CreateComment {
 	public void test2() {
 		System.out.println("Get Create comment test 2: content null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("hello","", "5");
+		String rq=this.creRequest("hello","");
 		this.callAPI(rq, "/5");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -74,10 +73,10 @@ public class CreateComment {
 	public void test3() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("","4","32");
+		String rq=this.creRequest("","4");
 		this.callAPI(rq, "32");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -85,10 +84,10 @@ public class CreateComment {
 	public void test4() {
 		System.out.println("Get Create comment test 4: Auction đang chờ duyệt (lỗi mô tả)");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("1","1","431");
+		String rq=this.creRequest("1","1");
 		this.callAPI(rq, "431");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -96,30 +95,30 @@ public class CreateComment {
 	public void test5() {
 		System.out.println("Get Create comment test 5: Auction đã kết thúc nhưng vẫn comment được");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("1","1","415");
+		String rq=this.creRequest("1","1");
 		this.callAPI(rq, "415");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	public void test6() {
 		System.out.println("Get Create comment test 6: comment_last_id không tồn tại");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("@@@","10000","999");
+		String rq=this.creRequest("@@@","10000");
 		this.callAPI(rq, "999");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test7() {
 		System.out.println("Get Create comment test 7: Chưa đăng nhập");
-		String rq=this.creRequest("@@@","10000","999");
+		String rq=this.creRequest("@@@","10000");
 		this.callAPI(rq, "999");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
