@@ -52,7 +52,7 @@ public class GetNews {
 
     public void N1() {
         System.out.println("Get news test 1: Correct data");
-        this.getAccessToken("ndh@gmail.com", "111");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("1", "3");
         this.callAPI(rq, "/1");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -63,7 +63,7 @@ public class GetNews {
 
     public void N2() {
         System.out.println("Get news test 2: index null");
-        this.getAccessToken("ndh@gmail.com", "111");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("2", "");
         this.callAPI(rq, "/2");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -74,7 +74,7 @@ public class GetNews {
 
     public void N3() {
         System.out.println("Get news test 3: count null");
-        this.getAccessToken("ndh@gmail.com", "111");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("1", "2");
         this.callAPI(rq, "/3");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
