@@ -274,22 +274,14 @@ public class ChooseTest {
 		else if(luachonAPI==4) {
 			System.out.println("4: Logout");
 			System.out.println("----------Mời chọn Test Case :----------");
-			System.out.println("0: All unit test ");
 			System.out.println("1: Logout test 1: ");
-			System.out.println("2: Logiut test 2:");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			LogoutTest lt = new LogoutTest();
-			if(luachonTest==0) {
-				lt.Logout1();
-				lt.Logout2();
-			}
-			else if(luachonTest==1) {
+			if(luachonTest==1) {
 				lt.Logout1();
 			}
-			else if(luachonTest==2) {
-				lt.Logout2();
-			}
+			
 		}
 		else if(luachonAPI==5) {
 			System.out.println("5: Get List Auctions");

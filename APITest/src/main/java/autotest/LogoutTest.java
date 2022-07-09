@@ -25,7 +25,7 @@ import org.testng.Assert;
 
          LoginTest login = new LoginTest();
          String currentAccount = login.creRequest(email, password);
-         this.callAPI(currentAccount);
+         login.callAPI(currentAccount);
          JSONObject data = new JSONObject(login.getDataResponse());
          String access_token = data.getString("access_token").toString();
          this.access_token = access_token;
@@ -42,7 +42,6 @@ import org.testng.Assert;
                          .header("Authorization", "Bearer" + access_token)
                          .when()
                          .post("api/logout");
-
          JSONObject rep = new JSONObject(response.getBody().asString());
          this.codeResponse = rep.get("code").toString();
          this.messageResponse = rep.get("message").toString();
@@ -60,14 +59,5 @@ import org.testng.Assert;
          else System.out.println("Fail");
      }
 
-     public void Logout2() {
-      System.out.println("Logout test 2");
-         this.getAccessToken("ndh@gmail.com", "111");
-         this.callAPI(access_token);
-         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
-         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
-             System.out.println("Finished! Satisfied!");
-         else System.out.println("Fail");
-     }
      
  }

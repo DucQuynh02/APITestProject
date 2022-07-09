@@ -63,3 +63,4 @@ public class GetSlider {
 		else System.out.println("Fail");
 
 	}
+}
