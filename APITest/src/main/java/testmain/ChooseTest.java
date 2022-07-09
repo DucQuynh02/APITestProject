@@ -29,7 +29,7 @@ import autotest.GetDetailAuction;
 import autotest.AcceptMaxBid;
 import autotest.SignUp;
 import autotest.ListAuctionByUser;
-
+import autotest.GetListCategoires;
 
 public class ChooseTest {
 	public void menuTest() {
@@ -548,7 +548,18 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==17) {
 			System.out.println("17: Get List CateGoires");
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: List auctions test 1: create success ");
+			GetListCategoires glc = new GetListCategoires();
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+				if(luachonTest==0) {
+				glc.GetListCategoires1();
+			}
+				if(luachonTest==1) {
+				glc.GetListCategoires1();
+			}
 		}
 		else if(luachonAPI==18) {
 			System.out.println("18: Get List Brands");
