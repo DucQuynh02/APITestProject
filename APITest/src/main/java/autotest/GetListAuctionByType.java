@@ -101,7 +101,7 @@ public class GetListAuctionByType {
 		else System.out.println("Fail");
 	}
 	
-	public void LAS6() {
+	public void test6() {
 		System.out.println("Get list auctions by type test 6: Type: đã bán");
 		this.access_token="";
 		String rq=this.creRequest("1","0");
@@ -110,7 +110,7 @@ public class GetListAuctionByType {
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 	}
-	public void LAS7() {
+	public void test7() {
 		System.out.println("Get list auctions by type test 7: Type Id is not exist");
 		this.access_token="";
 		String rq=this.creRequest("2","1");
