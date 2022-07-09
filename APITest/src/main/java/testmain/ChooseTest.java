@@ -763,36 +763,36 @@ public class ChooseTest {
 			System.out.println("19: Accept Max Bid");
 			System.out.println("----------Mời chọn Test Case :----------");
 			System.out.println("0: All unit test ");
-			System.out.println("1: Accepe Max Bid test 1: chua dang nhap ");
-			System.out.println("2: Accepe Max Bid test 2: khong co quyen");
-			System.out.println("3: Accepe Max Bid test 3: phien dau gia chua ket thuc");
-			System.out.println("4: Accepe Max Bid test 4: da ban");
-			System.out.println("5: Accepe Max Bid test 5: chua co tra gia nao");
+			System.out.println("1: Accept Max Bid test 1: chua dang nhap ");
+			System.out.println("2: Accept Max Bid test 2: khong co quyen");
+			System.out.println("3: Accept Max Bid test 3: phien dau gia chua ket thuc");
+			System.out.println("3: Accept Max Bid test 4: da ban");
+			System.out.println("3: Accept Max Bid test 5: chua co tra gia nao");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			AcceptMaxBid amb = new AcceptMaxBid();
 			if(luachonTest==0) {
-			amb.AMB1();
-			amb.AMB2();
-			amb.AMB3();
-			amb.AMB4();
-			amb.AMB5();
+				amb.AMB1();
+				amb.AMB2();
+				amb.AMB3();
+				amb.AMB4();
+				amb.AMB5();
 			}
 			else if(luachonTest==1) {
 				amb.AMB1();
-				}
+			}
 			else if(luachonTest==2) {
 				amb.AMB2();
-				}
+			}
 			else if(luachonTest==3) {
 				amb.AMB3();
-				}
+			}
 			else if(luachonTest==4) {
 				amb.AMB4();
-				}
+			}
 			else if(luachonTest==5) {
 				amb.AMB5();
-				}
+			}
 		}
 		else if(luachonAPI==20) {
 			System.out.println("20: Contact Us");
@@ -930,6 +930,29 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==24) {
 			System.out.println("24: Get News");
+			System.out.println("24: Get News");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Get News test 1: correct data ");
+			System.out.println("2: Get News test 2: index null");
+			System.out.println("3: Get News test 3: count null");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			GetNews n = new GetNews();
+			if(luachonTest==0) {
+				n.N1();
+				n.N2();
+				n.N3();
+			}
+			else if(luachonTest==1) {
+				n.N1();
+			}
+			else if(luachonTest==2) {
+				n.N2();
+			}
+			else if(luachonTest==3) {
+				n.N3();
+			}
 		}
 		else if(luachonAPI==25) {
 			System.out.println("25: Read New");
