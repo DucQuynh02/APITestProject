@@ -83,20 +83,9 @@ public class CreatItem {
 		this.dataResponse = rep.get("data").toString();
 	}
 	
-	public void CreatItem1() {
-		System.out.println("CreatItem test 1: Not login");
-		String rq= this.creRequest("anh","2","1","1","1321245","");
-		this.access_token="";
-		this.callAPInotlogin(rq,"/651");
-		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
-			System.out.println("Finished! Satisfied!");
-		else System.out.println("Fail");
-//        assert(rp.message != null && !"".equals(rp.message));
-	}
 	
-	public void CreatItem2() {
-		System.out.println("CreatItem test 2: Trùng thông tin ");
+	public void CreatItem1() {
+		System.out.println("CreatItem test 1: Trùng thông tin ");
 		String rq=this.creRequest("hi","2","3","1","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -107,8 +96,8 @@ public class CreatItem {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void CreatItem3() {
-		System.out.println("CreatItem test 3: name null ");
+	public void CreatItem2() {
+		System.out.println("CreatItem test 2: name null ");
 		String rq=this.creRequest("","2","3","1","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -119,8 +108,8 @@ public class CreatItem {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void CreatItem4() {
-		System.out.println("CreatItem test 4: Starting price null ");
+	public void CreatItem3() {
+		System.out.println("CreatItem test 3: Starting price null ");
 		String rq=this.creRequest("abc","","3","1","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -131,8 +120,8 @@ public class CreatItem {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void CreatItem5() {
-		System.out.println("CreatItem test 5: Starting price is not a number ");
+	public void CreatItem4() {
+		System.out.println("CreatItem test 4: Starting price is not a number ");
 		String rq=this.creRequest("abc","cde","3","1","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -143,8 +132,8 @@ public class CreatItem {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 
-	public void CreatItem6() {
-		System.out.println("CreatItem test 6:Brand id null ");
+	public void CreatItem5() {
+		System.out.println("CreatItem test 5:Brand id null ");
 		String rq=this.creRequest("abc","4","","1","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -155,8 +144,8 @@ public class CreatItem {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void CreatItem7() {
-		System.out.println("CreatItem test 7:Description id null ");
+	public void CreatItem6() {
+		System.out.println("CreatItem test 6:Description id null ");
 		String rq=this.creRequest("abc","4","3","","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -167,8 +156,8 @@ public class CreatItem {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void CreatItem8() {
-		System.out.println("CreatItem test 8:Trùng series ");
+	public void CreatItem7() {
+		System.out.println("CreatItem test 7:Trùng series ");
 		String rq=this.creRequest("abc","4","3","2","12332","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
@@ -178,13 +167,24 @@ public class CreatItem {
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
-	public void CreatItem9() {
-		System.out.println("CreatItem test 9:Series hơn 10 kí tự ");
+	public void CreatItem8() {
+		System.out.println("CreatItem test 8:Series hơn 10 kí tự ");
 		String rq=this.creRequest("abc","4","3","2","12332abcd1234cd","");		
 		getAccessToken("vdq118@gmail.com","vdq118");
 		this.callAPI(rq, "/651");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void CreatItem9() {
+		System.out.println("CreatItem test 9: Not login");
+		String rq= this.creRequest("anh","2","1","1","1321245","");
+		this.access_token="";
+		this.callAPInotlogin(rq,"/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));

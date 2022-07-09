@@ -69,7 +69,7 @@ public class GetListLikes {
 		this.callAPI(rq, "/1");
 		getAccessToken("chu1756@gmail.com","1234");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -81,7 +81,7 @@ public class GetListLikes {
 		this.access_token="";
 		this.callAPI(rq, "/4");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));

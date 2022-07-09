@@ -431,16 +431,58 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==12) {	
 			System.out.println("12: Create Item ");
+			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: CreatItem test 1: Trùng thông tin ");
+			System.out.println("2: CreatItem test 2: name null ");
+			System.out.println("3: CreatItem test 3: Starting price null ");
+			System.out.println("4: CreatItem test 4: Starting price is not a number ");
+			System.out.println("5: CreatItem test 5:Brand id null ");
+			System.out.println("6: CreatItem test 6:Description id null ");
+			System.out.println("7: CreatItem test 7:Trùng series ");
+			System.out.println("8: CreatItem test 8:Series hơn 10 kí tự ");
+
+			luachonTest = sc.nextInt();
+			sc.nextLine();
 			CreatItem crtIt = new CreatItem();
-			crtIt.CreatItem1();
-			crtIt.CreatItem2();
-			crtIt.CreatItem3();
-			crtIt.CreatItem4();
-			crtIt.CreatItem5();
-			crtIt.CreatItem6();
-			crtIt.CreatItem7();
-			crtIt.CreatItem8();
-			crtIt.CreatItem9();
+			if(luachonTest==0) {
+				crtIt.CreatItem1();
+				crtIt.CreatItem2();
+				crtIt.CreatItem3();
+				crtIt.CreatItem4();
+				crtIt.CreatItem5();
+				crtIt.CreatItem6();
+				crtIt.CreatItem7();
+				crtIt.CreatItem8();
+				
+			}
+			else if(luachonTest==1) {
+				crtIt.CreatItem1();
+				}
+			else if(luachonTest==2) {
+				crtIt.CreatItem2();
+				}
+			else if(luachonTest==3) {
+				crtIt.CreatItem3();
+				}
+			else if(luachonTest==4) {
+				crtIt.CreatItem4();
+				}
+			else if(luachonTest==5) {
+				crtIt.CreatItem5();
+				}
+			else if(luachonTest==6) {
+				crtIt.CreatItem6();
+				}
+			else if(luachonTest==7) {
+				crtIt.CreatItem7();
+				}
+			else if(luachonTest==8) {
+				crtIt.CreatItem8();
+				}
+			
+			
 	
 			
 		}
