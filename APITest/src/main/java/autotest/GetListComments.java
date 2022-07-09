@@ -10,13 +10,13 @@ import io.restassured.response.Response;
 
 public class GetListComments {
 
-    private int codeResponse;
+    private String codeResponse;
     private String messageResponse;
     private String dataResponse;
     private String access_token;
 
     public void getAccessToken(String email, String password) {
-        baseURI = Constant.BASEURI;
+        baseURI = Constant.BaseURL;
 
         LoginTest login = new LoginTest();
         String currentAccount = login.creRequest(email, password);
@@ -34,38 +34,49 @@ public class GetListComments {
         return req.toString();
     }
 
-    public void callAPI( String request,String auctionsID) {
-        baseURI = Constant.BASEURI;
+    public void callAPI(String request, String auctionsID) {
+        baseURI = Constant.BaseURL;
         Response response =
                 given()
                         .header("Authorization", "Bearer" + access_token)
                         .contentType("application/json")
                         .body(request)
                         .when()
-                        .get("comments/"+auctionsID);
+                        .get("comments/" + auctionsID);
 
         JSONObject rep = new JSONObject(response.getBody().asString());
-        this.codeResponse = Integer.parseInt(rep.get("code").toString());
+        this.codeResponse = rep.get("code").toString();
         this.messageResponse = rep.get("message").toString();
         this.dataResponse = rep.get("data").toString();
     }
 
-    void test1() {
-      System.out.println("Test1 in GetListComment API: The code should be 1000 and message is Ok when passing correctly");
-        //Unit 1
-        try {
-            String request = this.creRequest("1", "1");
-            String email = "ccc@gmail.com";
-            String password = "111";
-            String auctionID = "1";
-            this.callAPI( request,auctionID);
-            Assert.assertEquals(this.codeResponse, 1000);
-            Assert.assertEquals(this.messageResponse, "OK");
-            System.out.println("Code: 1000\nMessage: OK");
-            System.out.println("Unit 1: Passed");
-            System.out.println(this.dataResponse);
-        } catch (AssertionError e) {
-            System.out.println("Unit 1: Failed");
-        }
+    public void LC1() {
+        System.out.println(" Get List Comments test 1: The code should be 1000 and message is OK");
+        this.callAPI("", "/1");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void LC2() {
+        System.out.println("Get list comments test 2: index null");
+        String rq = this.creRequest("2", "");
+        this.callAPI(rq, "/2");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+
+    }
+
+    public void LC3() {
+        System.out.println("Get list auctions by status test 3: count null");
+        String rq = this.creRequest("1", "2");
+        this.callAPI(rq, "/3");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
 }
