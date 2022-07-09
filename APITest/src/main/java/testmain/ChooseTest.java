@@ -1106,11 +1106,16 @@ public class ChooseTest {
 			System.out.println("28: Get Slider");
 			System.out.println("----------Mời chọn Test Case :----------");
 			System.out.println("1: Get slider test 1: The code should be 1000 and message is OK ");
+			System.out.println("2: Get slider test 2: chưa đăng nhập ");
+			
 					luachonTest = sc.nextInt();
 					sc.nextLine();
 				GetSlider test = new GetSlider();
 			if(luachonTest==1) {
 						test.test1();
+			}
+			if(luachonTest==2) {
+						test.test2();
 			}
 		}
 		
