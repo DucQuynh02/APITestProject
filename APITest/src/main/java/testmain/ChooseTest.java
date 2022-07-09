@@ -960,12 +960,20 @@ public class ChooseTest {
 		else if(luachonAPI==23) {
 			System.out.println("23: Total Likes Of Auction");
 			System.out.println("----------Mời chọn Test Case :----------");
-			System.out.println("1: Total likes of auction test 1: The code should be 1000 and message is OK ");
+			System.out.println("1: Total likes of auction test 1: Correct data");
+			System.out.println("2: Total likes of auction test 2: Input auction must be a numeric value");
+			System.out.println("3: Total likes of auction test 3: Input auctionID get null value");
 				luachonTest = sc.nextInt();
 				sc.nextLine();
 			TotalLikesOfAuction test = new TotalLikesOfAuction();
 			if(luachonTest==1) {
 					test.test1();
+				}
+			if(luachonTest==2) {
+					test.test2();
+				}
+			if(luachonTest==3) {
+					test.test3();
 				}
 		}
 		else if(luachonAPI==24) {
