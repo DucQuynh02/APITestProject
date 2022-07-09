@@ -55,6 +55,7 @@ public class GetSlider {
 	
 	public void test2() {
 		System.out.println("Test 2 of GetSlider API: chưa đăng nhập");
+		this.getAccessToken("","");
 		this.callAPI(access_token);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
