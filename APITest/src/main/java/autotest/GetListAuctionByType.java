@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
- 
+
 public class GetListAuctionByType {
 	private String access_token;
 	private String codeResponse;
@@ -51,7 +51,7 @@ public class GetListAuctionByType {
 
 	public void test1() {
 		System.out.println("Get list auctions by type test 1: Correct data");
-		String rq= this.creRequest("2","3");
+		String rq= this.creRequest("1","3");
 		this.callAPI(rq,"/1");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -62,18 +62,17 @@ public class GetListAuctionByType {
 	public void test2() {
 		System.out.println("Get list auctions by type test 2: index null");
 		String rq=this.creRequest("2","");
-		this.callAPI(rq, "/4");
+		this.callAPI(rq, "/2");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
-//        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
 	public void test3() {
 		System.out.println("Get list auctions by type test 3: count null");
-		String rq=this.creRequest("","1");
-		this.callAPI(rq, "/5");
+		String rq=this.creRequest("1","2");
+		this.callAPI(rq, "/3");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -105,7 +104,7 @@ public class GetListAuctionByType {
 		System.out.println("Get list auctions by type test 6: Type: đã bán");
 		this.access_token="";
 		String rq=this.creRequest("1","0");
-		this.callAPI(rq, "/6");
+		this.callAPI(rq, "/5");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
