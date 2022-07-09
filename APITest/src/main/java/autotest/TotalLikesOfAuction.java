@@ -48,7 +48,7 @@ public class TotalLikesOfAuction {
 
 	public void test1() {
 		System.out.println("Test 1 of TotalLikesOfAuction API: return code should be 1000 and message should be OK");
-		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
+		this.getAccessToken("vdq118@gmail.com", "vdq118");
 		
 		this.callAPI("/123");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
