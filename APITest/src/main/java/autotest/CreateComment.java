@@ -63,7 +63,7 @@ public class CreateComment {
 		System.out.println("Get Create comment test 2: content null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("hello","");
-		this.callAPI(rq, "/431");
+		this.callAPI(rq, "/5");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -73,7 +73,7 @@ public class CreateComment {
 	public void test3() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("","hi");
+		String rq=this.creRequest("","4");
 		this.callAPI(rq, "32");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -84,7 +84,7 @@ public class CreateComment {
 	public void test4() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("","hi");
+		String rq=this.creRequest("","2");
 		this.callAPI(rq, "32");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -95,7 +95,7 @@ public class CreateComment {
 	public void test5() {
 		System.out.println("Get Create comment test 3: Correct data");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("@@@","102");
+		String rq=this.creRequest("@@@","9");
 		this.callAPI(rq, "567");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -105,7 +105,7 @@ public class CreateComment {
 	public void test6() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("@@@","102");
+		String rq=this.creRequest("@@@","9");
 		this.callAPI(rq, "999");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -115,7 +115,7 @@ public class CreateComment {
 	public void test7() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
 		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
-		String rq=this.creRequest("","...");
+		String rq=this.creRequest("","8");
 		this.callAPI(rq, "56");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
