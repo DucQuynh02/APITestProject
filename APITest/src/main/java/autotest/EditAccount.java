@@ -55,7 +55,8 @@ public class EditAccount {
 	 }
 	
 	public void test1() {
-		System.out.println("Contact test 1: Chỉnh sửa tài khoản thành công");
+		System.out.println("Edit account test 1: Chỉnh sửa tài khoản thành công");
+		
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -72,7 +73,7 @@ public class EditAccount {
 	}
 	
 	public void test2() {
-		System.out.println("Contact test 2: Name null");
+		System.out.println("Edit account test 2: Name null");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -83,13 +84,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test3() {
-		System.out.println("Contact test 3: Name: nhập quá 255 kí tự");
+		System.out.println("Edit account test 3: Name: nhập quá 255 kí tự");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -100,13 +101,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test4() {
-		System.out.println("Contact test 4: Phone: nhập quá 60 kí tự");
+		System.out.println("Edit account test 4: Phone: nhập quá 60 kí tự");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -117,13 +118,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test5() {
-		System.out.println("Contact test 5: Phone null");
+		System.out.println("Edit account test 5: Phone null");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -134,13 +135,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test6() {
-		System.out.println("Contact test 6: Address: nhập quá 255 kí tự");
+		System.out.println("Edit account test 6: Address: nhập quá 255 kí tự");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -151,13 +152,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test7() {
-		System.out.println("Contact test 7: Address null");
+		System.out.println("Edit account test 7: Address null");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -168,13 +169,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test8() {
-		System.out.println("Contact test 8: Email đã tồn tại");
+		System.out.println("Edit account test 8: Email đã tồn tại");
 		String rq = this.creRequest("bkhn@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -185,13 +186,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test9() {
-		System.out.println("Contact test 9: Email sai định dạng");
+		System.out.println("Edit account test 9: Email sai định dạng");
 		String rq = this.creRequest("tu.lx200549@gmailllllll",
 				                    "20200549", 
 				                    "20200549", 
@@ -202,13 +203,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test10() {
-		System.out.println("Contact test 10: Email nhập quá 255 kí tự");
+		System.out.println("Edit account test 10: Email nhập quá 255 kí tự");
 		String rq = this.creRequest("tu.lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549lx200549@gmail.com",
 				                    "20200549", 
 				                    "20200549", 
@@ -219,13 +220,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test11() {
-		System.out.println("Contact test 11: Email null");
+		System.out.println("Edit account test 11: Email null");
 		String rq = this.creRequest("",
 				                    "20200549", 
 				                    "20200549", 
@@ -236,13 +237,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test12() {
-		System.out.println("Contact test 12: Pass null");
+		System.out.println("Edit account test 12: Pass null");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "", 
 				                    "", 
@@ -253,13 +254,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test13() {
-		System.out.println("Contact test 13: Pass: nhập quá 255 kí tự");
+		System.out.println("Edit account test 13: Pass: nhập quá 255 kí tự");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "2020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549202005492020054920200549", 
 				                    "", 
@@ -270,13 +271,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test14() {
-		System.out.println("Contact test 14: Re_pass null");
+		System.out.println("Edit account test 14: Re_pass null");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "", 
@@ -287,13 +288,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test15() {
-		System.out.println("Contact test 15: re_pass không trùng pass");
+		System.out.println("Edit account test 15: re_pass không trùng pass");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "20200549", 
 				                    "20202222", 
@@ -304,13 +305,13 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 	
 	public void test16() {
-		System.out.println("Contact test 16: Re_pass: nhập quá 255 kí tự");
+		System.out.println("Edit account test 16: Re_pass: nhập quá 255 kí tự");
 		String rq = this.creRequest("tu.lx200549@gmail.com",
 				                    "2202005492020054920200549202005492020054920200549", 
 				                    "22020054922020054920200549202005492020054920200549202005492202005492020054920200549202005492020054920200549220200549202005492020054920200549202005492020054922020054920200549202005492020054920200549202005492202005492020054920200549202005492020054920200549220200549202005492020054920200549202005492020054922020054920200549202005492", 
@@ -321,7 +322,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1001") && !messageResponse.equals(""))
+		if(codeResponse.equals("1000") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
