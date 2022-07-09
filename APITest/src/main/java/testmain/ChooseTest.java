@@ -308,25 +308,13 @@ public class ChooseTest {
 			lau.ListAuctionByUser3();
 			}
 			else if(luachonTest==1) {
-				test.Test1();
+				lau.ListAuctionByUser1();
 				}
 			else if(luachonTest==2) {
-				test.Test2();
+				lau.ListAuctionByUser2();
 				}
 			else if(luachonTest==3) {
-				test.Test3();
-				}
-			else if(luachonTest==4) {
-				test.Test4();
-				}
-			else if(luachonTest==5) {
-				test.Test5();
-				}
-			else if(luachonTest==6) {
-				test.Test6();
-				}
-			else if(luachonTest==7) {
-				test.Test7();
+				lau.ListAuctionByUser3();
 				}
 		}
 		else if(luachonAPI==8) {
