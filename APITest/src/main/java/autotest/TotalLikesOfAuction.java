@@ -52,7 +52,7 @@ public class TotalLikesOfAuction {
 		System.out.println("Test 1 of TotalLikesOfAuction API: Correct data");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
 		String rq= this.creRequest("9");
-		this.callAPI("/9");
+		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -62,8 +62,8 @@ public class TotalLikesOfAuction {
 	public void test2() {
 		System.out.println("Test 2 of TotalLikesOfAuction API: Input auction must be a numeric value");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
-		String rq= this.creRequest("a");
-		this.callAPI("/9");
+		String rq= this.creRequest("xyz");
+		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -74,7 +74,7 @@ public class TotalLikesOfAuction {
 		System.out.println("Test 3 of TotalLikesOfAuction API: Input auctionID get null value");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
 		String rq= this.creRequest("");
-		this.callAPI("/9");
+		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
