@@ -71,7 +71,7 @@ public class GetListComments {
     }
 
     public void LC3() {
-        System.out.println("Get list auctions by status test 3: count null");
+        System.out.println("Get list comments test 3: count null");
         String rq = this.creRequest("1", "2");
         this.callAPI(rq, "3");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
