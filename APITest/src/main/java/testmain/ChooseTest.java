@@ -814,8 +814,14 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==18) {
 			System.out.println("18: Get List Brands");
-			
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("1: Get list brands test 1: The code should be 1000 and message is OK ");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			GetListBrands test = new GetListBrands();
+			if(luachonTest==1) {
+				test.test1();
+			}
 		}
 		else if(luachonAPI==19) {
 			System.out.println("19: Accept Max Bid");
