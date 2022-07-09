@@ -24,9 +24,11 @@ public class TotalLikesOfAuction {
 		String access_token = data.getString("access_token").toString();
 		this.access_token = access_token;
 	}
-
+	
 	public String creRequest(String... request) {		
-		return null;
+		JSONObject req = new JSONObject();
+		req.put("auction_id", request[0]);
+		return req.toString();
 	}
 
 	public void callAPI(String auctionID) {
@@ -47,13 +49,14 @@ public class TotalLikesOfAuction {
 	}
 
 	public void test1() {
-		System.out.println("Test 1 of TotalLikesOfAuction API: return code should be 1000 and message should be OK");
+		System.out.println("Test 1 of TotalLikesOfAuction API: Correct data");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
-		
-		this.callAPI("/123");
+		String rq= this.creRequest("9");
+		this.callAPI("/9");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
 }
+	
