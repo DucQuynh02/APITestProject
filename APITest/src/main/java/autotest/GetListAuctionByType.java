@@ -50,7 +50,7 @@ public class GetListAuctionByType {
 	}
 
 	public void test1() {
-		System.out.println("Get list auctions by status test 1: Correct data");
+		System.out.println("Get list auctions by type test 1: Correct data");
 		String rq= this.creRequest("2","3");
 		this.callAPI(rq,"/1");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -60,7 +60,7 @@ public class GetListAuctionByType {
 	}
 	
 	public void test2() {
-		System.out.println("Get list auctions by status test 2: index null");
+		System.out.println("Get list auctions by type test 2: index null");
 		String rq=this.creRequest("2","");
 		this.callAPI(rq, "/4");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -71,7 +71,7 @@ public class GetListAuctionByType {
 	}
 	
 	public void test3() {
-		System.out.println("Get list auctions by status test 3: count null");
+		System.out.println("Get list auctions by type test 3: count null");
 		String rq=this.creRequest("","1");
 		this.callAPI(rq, "/5");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
