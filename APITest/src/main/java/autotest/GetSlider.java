@@ -25,10 +25,6 @@ public class GetSlider {
 		this.access_token = access_token;
 	}
 
-	public String creRequest(String... request) {		
-		return null;
-	}
-
 	public void callAPI(String request) {
 		baseURI = Constant.BaseURL;
 		
