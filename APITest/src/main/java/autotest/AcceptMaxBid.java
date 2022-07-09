@@ -60,7 +60,7 @@ public class AcceptMaxBid {
 
     public void AMB2() {
         System.out.println("Accept max bid test 2: khong co quyen");
-        this.getAccessToken("ndh@gmail.com", "111");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("");
         this.callAPI(rq, "/2");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -71,7 +71,7 @@ public class AcceptMaxBid {
 
     public void AMB3() {
         System.out.println("Accept max bid test 3: phien dau gia chua ket thuc");
-        this.getAccessToken("ndh@gmail.com", "111");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("");
         this.callAPI(rq, "/3");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -82,6 +82,7 @@ public class AcceptMaxBid {
 
     public void AMB4() {
         System.out.println("Accept max bid test 4: Da ban");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("");
         this.callAPI(rq, "/4");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -92,6 +93,7 @@ public class AcceptMaxBid {
 
     public void AMB5() {
         System.out.println("Accept max bid test 4: chua co tra gia nao");
+        this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("");
         this.callAPI(rq, "/5");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
