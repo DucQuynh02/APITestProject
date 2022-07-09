@@ -30,7 +30,7 @@ import autotest.AcceptMaxBid;
 import autotest.SignUp;
 import autotest.ListAuctionByUser;
 import autotest.GetListCategoires;
-
+import autotest.GetListLikes;
 public class ChooseTest {
 	public void menuTest() {
 		Scanner sc= new Scanner(System.in) ;
@@ -644,7 +644,29 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==22) {	
 			System.out.println("22: Get List Likes");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Get List Likes test 1: Correct data");
+			System.out.println("2: Get List Likes test 2: Logout");
+			System.out.println("3: Get List Likes test 3: not logged in");
+			GetListLikes gll = new GetListLikes();
+			luachonTest = sc.nextInt();
+			sc.nextLine();
 			
+			if(luachonTest==0) {
+				gll.GetListLikes1();
+				gll.GetListLikes2();
+				gll.GetListLikes3();	
+			}
+			else if(luachonTest==1) {
+				gll.GetListLikes1();
+				}
+			else if(luachonTest==2) {
+				gll.GetListLikes2();
+				}
+			else if(luachonTest==3) {
+				gll.GetListLikes3();
+				}
 		}
 		else if(luachonAPI==23) {
 			System.out.println("23: Total Likes Of Auction");
