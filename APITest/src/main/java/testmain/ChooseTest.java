@@ -31,6 +31,8 @@ import autotest.SignUp;
 import autotest.ListAuctionByUser;
 import autotest.GetListCategoires;
 import autotest.GetListLikes;
+import autotest.ReadNotifications;
+
 public class ChooseTest {
 	public void menuTest() {
 		Scanner sc= new Scanner(System.in) ;
@@ -729,8 +731,24 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==27) {
 			System.out.println("27: Read Notifications");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Read Notifications 1: Correct data");
+			System.out.println("2: Read Notifications 2: not logged in");
 			
-			
+			ReadNotifications rn = new ReadNotifications();
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			if(luachonTest==0) {
+				rn.ReadNotifications1();
+				rn.ReadNotifications2(); 
+			}
+			else if(luachonTest==1) {
+				rn.ReadNotifications1();
+				}
+			else if(luachonTest==2) {
+				rn.ReadNotifications2(); 
+				}		
 		}
 		else if(luachonAPI==28) {
 			System.out.println("28: Get Slider");
