@@ -60,7 +60,7 @@ public class Search {
     }
 
     public void Search2() {
-        System.out.println("Get list auctions by status test 2: type null");
+        System.out.println("Search test 2: type null");
         String rq = this.creRequest("2", "");
         this.callAPI(rq);
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -80,7 +80,7 @@ public class Search {
     }
 
     public void Search4() {
-        System.out.println("Get list auctions by status test 3: tim kiem theo gia khoi diem");
+        System.out.println("Search test 4: tim kiem theo gia khoi diem");
         this.access_token = "";
         String rq = this.creRequest("1", "1000");
         this.callAPI(rq);
@@ -90,12 +90,42 @@ public class Search {
         else System.out.println("Fail");
     }
     public void Search5() {
-        System.out.println("Search test 4:tim kiem theo thoi gian bat dau cua phien dau gia");
+        System.out.println("Search test 5:tim kiem theo thoi gian bat dau cua phien dau gia");
         this.access_token = "";
         String rq = this.creRequest("2", "12h");
         this.callAPI(rq);
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void Search6() {
+        System.out.println("Search test 6:tim kiem theo thoi gian ket thuc cua phien dau gia");
+        this.access_token = "";
+        String rq = this.creRequest("3", "12h");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void Search7() {
+        System.out.println("Search test 7:tim kiem theo ten cua phien dau gia");
+        this.access_token = "";
+        String rq = this.creRequest("4", "alo");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+    public void Search8() {
+        System.out.println("Search test 8:khong thay ket qua");
+        this.access_token = "";
+        String rq = this.creRequest("1", "12h");
+        this.callAPI(rq);
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("9998") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
         else System.out.println("Fail");
     }
