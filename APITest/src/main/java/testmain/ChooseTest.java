@@ -291,6 +291,7 @@ public class ChooseTest {
 				editAuc.EditAuction3();
 				editAuc.EditAuction4();
 				editAuc.EditAuction5();
+				editAuc.EditAuction6();
 			}
 			else if(luachonTest==1) {
 				editAuc.EditAuction1();
@@ -306,6 +307,9 @@ public class ChooseTest {
 				}
 			else if(luachonTest==5) {
 				editAuc.EditAuction5();
+				}
+			else if(luachonTest==6) {
+				editAuc.EditAuction6();
 				}
 			
 		}
@@ -432,6 +436,8 @@ public class ChooseTest {
 				likeAuc.likeAuction1();
 				likeAuc.likeAuction2();
 				likeAuc.likeAuction3();
+				likeAuc.likeAuction4();
+				
 			}
 			else if(luachonTest==1) {
 				likeAuc.likeAuction1();
@@ -441,6 +447,9 @@ public class ChooseTest {
 				}
 			else if(luachonTest==3) {
 				likeAuc.likeAuction3();
+				}
+			else if(luachonTest==4) {
+				likeAuc.likeAuction4();
 				}
 
 			

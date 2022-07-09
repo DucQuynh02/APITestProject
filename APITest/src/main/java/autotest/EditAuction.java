@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 
 import org.json.JSONObject;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class EditAuction {
@@ -49,6 +50,34 @@ public class EditAuction {
 		this.dataResponse = rep.get("data").toString();
 	}
 	
+	public void callAPInotlogin(String request, String auctionId) {
+		baseURI = Constant.BaseURL;
+		Response firstResponse = RestAssured
+				.given()
+					.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+					.body(request.toString())
+		            .redirects().follow(false)
+		        .expect().statusCode(302)
+				.when()
+					.post("api/auctions/edit" + auctionId);
+		String redirectUrl = firstResponse.getHeader("Location");
+		Response response = RestAssured
+		        .given()
+		        	.header("Authorization", "Bearer" + this.access_token)
+		        	.contentType("application/json")
+		        .when().
+		            get(redirectUrl);
+		
+		
+		JSONObject rep = new JSONObject(response.getBody().asString());
+		this.codeResponse = rep.get("code").toString();
+		this.messageResponse = rep.get("message").toString();
+		this.dataResponse = rep.get("data").toString();
+	}
+	
+	
+	
 	public void EditAuction1() {
 		System.out.println("Edit Auction test 1: Auction đã duyệt");
 		getAccessToken("vdq118@gmail.com", "vdq118");
@@ -66,9 +95,9 @@ public class EditAuction {
 		LogoutTest logout = new LogoutTest();
 		logout.callAPI(this.access_token);
 		String rq= this.creRequest("7","","","");
-		this.callAPI(rq,"/497");
+		this.callAPInotlogin(rq,"/497");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1005") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -103,6 +132,18 @@ public class EditAuction {
 		getAccessToken("vdq118@gmail.com", "vdq118");
 		String rq= this.creRequest("7","2022/07/10","2022/08/22","Dau gia 651");
 		this.callAPI(rq,"/654");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction6() {
+		System.out.println("Edit Auction test 5: Không đăng nhập ");
+		this.access_token="";
+		String rq= this.creRequest("7","2022/07/10","2022/08/22","Dau gia 651");
+		this.callAPInotlogin(rq,"/654");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");

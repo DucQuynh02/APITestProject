@@ -1,6 +1,8 @@
 package autotest;
 
 import static io.restassured.RestAssured.*;
+
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -42,10 +44,31 @@ public class LikeAuction {
 				.when()
 					.post("/api/updateLike" + auctionId);
 		
+		
+		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
+	}
+	
+	public Response callAPInotlogin(String auctionId) {
+		Response firstResponse = RestAssured
+				.given()
+					.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+		            .redirects().follow(false)
+		        .expect().statusCode(302)
+				.when()
+					.post("api/auctions/edit" + auctionId);
+		String redirectUrl = firstResponse.getHeader("Location");
+		Response response = RestAssured
+		        .given()
+		        	.header("Content-Type", "application/json")
+		        .when().
+		            get(redirectUrl);
+		
+		return response;
 	}
 	
 	public void likeAuction1() {
@@ -73,7 +96,21 @@ public class LikeAuction {
 	public void likeAuction3() {
 		this.access_token = "";
 		System.out.println("Like auctions test 3: Không đăng nhập");
-		this.callAPI("/651");
+		this.callAPInotlogin("/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void likeAuction4() {
+		
+		System.out.println("Like auctions test 4: Logout");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		LogoutTest logout = new LogoutTest();
+		logout.callAPI(this.access_token);
+		this.callAPInotlogin("/651");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
