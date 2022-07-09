@@ -178,25 +178,97 @@ public class ChooseTest {
 			
 
 		}
-		else if(luachonAPI==3) {
+			else if(luachonAPI==3) {
 			System.out.println("3: Edit Account");
-			EditAccount editAcc = new EditAccount();
-			editAcc.test1();
-			editAcc.test2();
-			editAcc.test3();
-			editAcc.test4();
-			editAcc.test5();
-			editAcc.test6();
-			editAcc.test7();
-			editAcc.test8();
-			editAcc.test9();
-			editAcc.test10();
-			editAcc.test11();
-			editAcc.test12();
-			editAcc.test13();
-			editAcc.test14();
-			editAcc.test15();
-			editAcc.test16();
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Edit Account test 1: Chỉnh sửa tài khoản thành công");
+			System.out.println("2: Edit Account test 2: Name null");
+			System.out.println("3: Edit Account test 3: Name: nhập quá 255 kí tự");
+			System.out.println("4: Edit Account test 4: Phone: nhập quá 60 kí tự");
+			System.out.println("5: Edit Account test 5: Phone null");
+			System.out.println("6: Edit Account test 6: Address: nhập quá 255 kí tự");
+			System.out.println("7: Edit Account test 7: Address null");
+			System.out.println("8: Edit Account test 8: Email đã tồn tại");
+			System.out.println("9: Edit Account test 9: Email sai định dạng");
+			System.out.println("10: Edit Account test 10: Email nhập quá 255 kí tự");
+			System.out.println("11: Edit Account test 11: Email null");
+			System.out.println("12: Edit Account test 12: Pass null");
+			System.out.println("13: Edit Account test 13: Pass: nhập quá 255 kí tự");
+			System.out.println("14: Edit Account test 14: Re_pass null");
+			System.out.println("15: Edit Account test 15: Re_pass không trùng pass");
+			System.out.println("16: Edit Account test 16: Re_pass: nhập quá 255 kí tự");
+			
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			EditAccount test = new EditAccount();
+			if(luachonTest==0) {
+			test.Test1();
+			test.Test2();
+			test.Test3();
+			test.Test4();
+			test.Test5();
+			test.Test6();
+			test.Test7();
+			test.Test8();
+			test.Test9();
+			test.Test10();
+			test.Test11();
+			test.Test12();
+			test.Test13();
+			test.Test14();
+			test.Test15();
+			test.Test16();
+			
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
+			else if(luachonTest==6) {
+				test.Test6();
+				}
+			else if(luachonTest==7) {
+				test.Test7();
+				}
+			else if(luachonTest==8) {
+				test.Test8();
+				}
+			else if(luachonTest==9) {
+				test.Test9();
+				}
+			else if(luachonTest==10) {
+				test.Test10();
+				}
+			else if(luachonTest==11) {
+				test.Test11();
+				}
+			else if(luachonTest==12) {
+				test.Test12();
+				}
+			else if(luachonTest==13) {
+				test.Test13();
+				}
+			else if(luachonTest==14) {
+				test.Test14();
+				}
+			else if(luachonTest==15) {
+				test.Test15();
+				}
+			else if(luachonTest==16) {
+					test.Test16();
+					}
 		}
 		else if(luachonAPI==4) {
 			System.out.println("4: Logout");
