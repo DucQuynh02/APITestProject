@@ -988,20 +988,21 @@ public class ChooseTest {
 			System.out.println("3: Get News test 3: count null");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
-			GetNews n = new GetNews();
+			GetNews getNews = new GetNews();
 			if(luachonTest==0) {
-				n.N1();
-				n.N2();
-				n.N3();
+				getNews.GetNews1();
+				getNews.GetNews2();
+				getNews.GetNews3();
+				getNews.GetNews4();
 			}
 			else if(luachonTest==1) {
-				n.N1();
+				getNews.GetNews1();
 			}
 			else if(luachonTest==2) {
-				n.N2();
+				getNews.GetNews2();
 			}
 			else if(luachonTest==3) {
-				n.N3();
+				getNews.GetNews3();
 			}
 		}
 		else if(luachonAPI==25) {
