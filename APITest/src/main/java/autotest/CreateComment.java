@@ -112,4 +112,14 @@ public class CreateComment {
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
+	
+	public void test7() {
+		System.out.println("Get Create comment test 7: Chưa đăng nhập");
+		String rq=this.creRequest("@@@","10000");
+		this.callAPI(rq, "999");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
 }
