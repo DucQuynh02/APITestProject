@@ -1,63 +1,59 @@
 package autotest;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
-import org.json.JSONObject;
-import org.testng.Assert;
+import static io.restassured.RestAssured.*;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
+import org.json.JSONObject;
+
+import com.google.gson.Gson;
+ 
 public class TotalLikesOfAuction {
-	private int codeResponse;
+	private String access_token;
+	private String codeResponse;
 	private String messageResponse;
 	private String dataResponse;
-	
-	public String creRequest(String ... request) {
+
+	public void getAccessToken(String email, String password) {
+		baseURI = Constant.BaseURL;
+		
 		LoginTest login = new LoginTest();
-		String currentAccount = login.creRequest(request[0], request[1]);
+		String currentAccount = login.creRequest(email, password);
 		login.callAPI(currentAccount);
 		JSONObject data = new JSONObject(login.getDataResponse());
 		String access_token = data.getString("access_token").toString();
-		return access_token;
+		this.access_token = access_token;
 	}
-	
-	public void callAPI(String access_token, String auctionID) {
+
+	public String creRequest(String... request) {		
+		return null;
+	}
+
+	public void callAPI(String auctionID) {
 		baseURI = Constant.BaseURL;
 		
 		Response response = 
 				given()
-					.header("Authorization", "Bearer" + access_token)
+					.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+					.body(auctionID)
 				.when()
-					.get("api/totalLikes/" + auctionID);
+					.get("api/totalLikes" + auctionID);
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
-		this.codeResponse = Integer.parseInt(rep.get("code").toString());
+		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
 	}
-	
-	void test1() {
+
+	public void test1() {
+		System.out.println("Test 1 of TotalLikesOfAuction API: return code should be 1000 and message should be OK");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		
-		//Unit 1
-		try {
-			System.out.println("Test 1: return code should be 1000 and message should be OK");
-			
-			String access_token = this.creRequest(
-					"auto@gmail.com"
-					,"123456"
-					);
-			
-			String auctionID = "123";
-			this.callAPI(access_token, auctionID);
-			System.out.println(this.codeResponse);
-			System.out.println(this.messageResponse);
-			System.out.println(this.dataResponse);
-			
-			Assert.assertEquals(this.codeResponse, 1000);
-			Assert.assertEquals(this.messageResponse, "OK");
-			
-			System.out.println("Unit 1: Passed");
-		} catch (AssertionError e) {
-			System.out.println("Unit 1: Failed");
-		}
+		this.callAPI("/123");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
 	}
 }
