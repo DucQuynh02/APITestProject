@@ -346,7 +346,7 @@ public class ChooseTest {
 				lc.LC2();
 				}
 			else if(luachonTest==3) {
-				lc.Lc3();
+				lc.LC3();
 				}
 			
 		}
