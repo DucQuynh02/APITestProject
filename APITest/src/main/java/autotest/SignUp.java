@@ -136,7 +136,7 @@ public class SignUp {
 		String rq=this.creRequest("anh@gmail.com","","2","Hanoi","anh","","");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -150,7 +150,7 @@ public class SignUp {
 		String rq=this.creRequest("null",randomPass,randomPass,"null",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -166,7 +166,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"null",randomName,randomPhone,"null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -180,7 +180,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"null",randomName,"null","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -195,7 +195,7 @@ public class SignUp {
  		String rq=this.creRequest(randomMail,randomPass,randomPass,randomAddress,randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -209,7 +209,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"",randomName,"","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -223,7 +223,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -236,7 +236,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi","","0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -249,7 +249,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -263,7 +263,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,"null",randomPass,"Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -275,7 +275,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -287,7 +287,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,"null","Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -301,7 +301,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomrePass,"Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -315,7 +315,7 @@ public class SignUp {
 		String rq=this.creRequest(randomMail,randomPass,randomrePass,"Hanoi",randomName,"0815023369","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
@@ -325,7 +325,7 @@ public class SignUp {
 		String rq=this.creRequest("thanh12345@gmail.com","123456","123456","Hanoi","Thanh","0815623115139","null");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
