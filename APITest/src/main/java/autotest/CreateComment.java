@@ -1,6 +1,8 @@
 package autotest;
 
 import static io.restassured.RestAssured.*;
+
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -42,12 +44,39 @@ public class CreateComment {
 					.body(request)
 				.when()
 					.post("api/comments/create" + auctionID);
+		System.out.println(response.asString());
+		JSONObject rep = new JSONObject(response.getBody().asString());
+		this.codeResponse = rep.get("code").toString();
+		this.messageResponse = rep.get("message").toString();
+		this.dataResponse = rep.get("data").toString();
+	}
+	
+	public void callAPInotlogin(String request, String auctionId) {
+		baseURI = Constant.BaseURL;
+		Response firstResponse = RestAssured
+				.given()
+					.header("Authorization", "Bearer" + this.access_token)
+					.contentType("application/json")
+					.body(request.toString())
+		            .redirects().follow(false)
+		        .expect().statusCode(302)
+				.when()
+					.post("api/comments/create" + auctionId);
+		String redirectUrl = firstResponse.getHeader("Location");
+		Response response = RestAssured
+		        .given()
+		        	.header("Authorization", "Bearer" + this.access_token)
+		        	.contentType("application/json")
+		        .when().
+		            get(redirectUrl);
+		
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
 		this.dataResponse = rep.get("data").toString();
 	}
+	
 	public void test1() {
 		System.out.println("Get Create comment test 1: Correct data");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
@@ -114,9 +143,10 @@ public class CreateComment {
 	}
 	
 	public void test7() {
-		System.out.println("Get Create comment test 7: Chưa đăng nhập");
+		System.out.println("Get Create comment test 7: chưa login");
 		this.access_token="";
-		this.callAPI("", "");
+		String rq=this.creRequest("@@@","7");
+		this.callAPInotlogin(rq, "/417");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
