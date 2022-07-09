@@ -58,5 +58,27 @@ public class TotalLikesOfAuction {
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
+	
+	public void test2() {
+		System.out.println("Test 2 of TotalLikesOfAuction API: Input auction must be a numeric value");
+		this.getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("a");
+		this.callAPI("/9");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
+	
+	public void test3() {
+		System.out.println("Test 3 of TotalLikesOfAuction API: Input auctionID get null value");
+		this.getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("");
+		this.callAPI("/9");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+	}
 }
 	
