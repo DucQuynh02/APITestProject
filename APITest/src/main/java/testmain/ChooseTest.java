@@ -253,7 +253,7 @@ public class ChooseTest {
 				test.test10();
 				}
 			else if(luachonTest==11) {
-				test.Test11();
+				test.test11();
 				}
 			else if(luachonTest==12) {
 				test.test12();
