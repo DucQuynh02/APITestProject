@@ -133,7 +133,7 @@ public class SignUp {
 	    String randomMail = email.getStringWithFixedLength(270) + "@gmail.com";
 	    String randomPass = email.getStringWithFixedLength(12);
 	    String randomName = email.getSaltString();
-		String rq=this.creRequest("anh@gmail.com","","2","Hanoi","anh","","");
+		String rq=this.creRequest(randomMail,randomPass,randomPass,"Hanoi","anh","","");
 		this.callAPI(rq);
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
