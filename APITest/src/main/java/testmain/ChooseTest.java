@@ -653,11 +653,52 @@ public class ChooseTest {
 	
 			
 		}
-		else if(luachonAPI==13) {
-			System.out.println("13: Create Comment");
-			CreateComment crtcmt = new CreateComment();
-			crtcmt.test1();
+			else if(luachonAPI==13) {
+			System.out.println("13: Create comment");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Create comment test 1: Correct data ");
+			System.out.println("2: Create comment test 2: content null");
+			System.out.println("3: Create comment test 3: comment_last_id null");
+			System.out.println("4: Create comment test 4: Auction đang chờ duyệt");
+			System.out.println("5: Create comment test 5: Auction đã kết thúc nhưng vẫn comment được");
+			System.out.println("6: Create comment test 6: comment_last_id không tồn tại");
+			System.out.println("7: Create comment test 7: Chưa đăng nhập");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			CreateComment test = new CreateComment();
+			if(luachonTest==0) {
+			test.test1();
+			test.test2();
+			test.test3();
+			test.test4();
+			test.test5();
+			test.test6();
+			test.test7();
+			}
+			else if(luachonTest==1) {
+				test.test1();
+				}
+			else if(luachonTest==2) {
+				test.test2();
+				}
+			else if(luachonTest==3) {
+				test.test3();
+				}
+			else if(luachonTest==4) {
+				test.test4();
+				}
+			else if(luachonTest==5) {
+				test.test5();
+				}
+			else if(luachonTest==6) {
+				test.test6();
+				}
+			else if(luachonTest==7) {
+				test.test7();
+				}
 		}
+		
 		else if(luachonAPI==14) {
 			System.out.println("14: Get List Comment");
 			System.out.println("----------Mời chọn Test Case :----------");
