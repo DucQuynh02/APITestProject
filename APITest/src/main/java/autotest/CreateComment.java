@@ -50,6 +50,7 @@ public class CreateComment {
 	}
 	public void test1() {
 		System.out.println("Get Create comment test 1: Correct data");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq= this.creRequest("ye","ey");
 		this.callAPI(rq,"/0");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -60,6 +61,7 @@ public class CreateComment {
 	
 	public void test2() {
 		System.out.println("Get Create comment test 2: content null");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("hello","");
 		this.callAPI(rq, "/431");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -70,6 +72,7 @@ public class CreateComment {
 	
 	public void test3() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("","hi");
 		this.callAPI(rq, "32");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -80,6 +83,7 @@ public class CreateComment {
 	
 	public void test4() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("","hi");
 		this.callAPI(rq, "32");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -90,6 +94,7 @@ public class CreateComment {
 	
 	public void test5() {
 		System.out.println("Get Create comment test 3: Correct data");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("@@@","102");
 		this.callAPI(rq, "567");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -99,6 +104,7 @@ public class CreateComment {
 	}
 	public void test6() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("@@@","102");
 		this.callAPI(rq, "999");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -108,6 +114,7 @@ public class CreateComment {
 	}
 	public void test7() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("","...");
 		this.callAPI(rq, "56");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
@@ -118,6 +125,7 @@ public class CreateComment {
 	
 	public void test8() {
 		System.out.println("Get Create comment test 3: content null");
+		this.getAccessToken("tu.lx200549@gmail.com", "20200549");
 		String rq=this.creRequest("quynh##3","");
 		this.callAPI(rq, "56");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
