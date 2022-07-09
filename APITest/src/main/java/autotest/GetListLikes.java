@@ -63,8 +63,9 @@ public class GetListLikes {
 	}
 	
 	public void GetListLikes2() {
-		System.out.println("Get list Likes test 2: ");
+		System.out.println("Get list Likes test 2: Logout ");
 		String rq=this.creRequest("","2");
+		this.access_token="";
 		this.callAPI(rq, "/1");
 		getAccessToken("chu1756@gmail.com","1234");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
