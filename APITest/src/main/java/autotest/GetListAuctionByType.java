@@ -29,6 +29,7 @@ public class GetListAuctionByType {
 		JSONObject req = new JSONObject();
 		req.put("index", request[0]);
 		req.put("count", request[1]);
+		req.put("type", request[2]);
 		return req.toString();
 	}
 
@@ -41,7 +42,7 @@ public class GetListAuctionByType {
 					.contentType("application/json")
 					.body(request)
 				.when()
-					.get("api/auctions/listAuctions" + typeID);
+					.get("api/auctions/listAuctions" );
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
@@ -51,8 +52,8 @@ public class GetListAuctionByType {
 
 	public void test1() {
 		System.out.println("Get list auctions by type test 1: Correct data");
-		String rq= this.creRequest("1","3");
-		this.callAPI(rq,"/1");
+		String rq= this.creRequest("1","3","1");
+		this.callAPI(rq,"");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -61,7 +62,7 @@ public class GetListAuctionByType {
 	
 	public void test2() {
 		System.out.println("Get list auctions by type test 2: index null");
-		String rq=this.creRequest("2","");
+		String rq=this.creRequest("2","","2");
 		this.callAPI(rq, "/2");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -71,7 +72,7 @@ public class GetListAuctionByType {
 	
 	public void test3() {
 		System.out.println("Get list auctions by type test 3: count null");
-		String rq=this.creRequest("1","2");
+		String rq=this.creRequest("1","2","1");
 		this.callAPI(rq, "/3");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -81,8 +82,8 @@ public class GetListAuctionByType {
 	
 	public void test4() {
 		System.out.println("Get list auctions by type test 4: Log in");
-		this.getAccessToken("tu.lx20200549@gmail.com", "20200549");
-		String rq=this.creRequest("2","1");
+		this.getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq=this.creRequest("2","1","3");
 		this.callAPI(rq, "/4");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -92,7 +93,7 @@ public class GetListAuctionByType {
 	public void test5() {
 		System.out.println("Get list auctions by type test 5: Outdate token");
 		this.access_token="\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hdWN0aW9ucy1hcHAtMi5oZXJva3VhcHAuY29tXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU3MDg3OTE1LCJleHAiOjE2NTc0NDc5MTUsIm5iZiI6MTY1NzA4NzkxNSwianRpIjoiWFVhMjJobUE2YkN0aWdGVyIsInN1YiI6NDU2LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3RS48RhssXwTNdnfKAkLbLj_HA3RaQoQo1xtVrlAOSA";
-		String rq=this.creRequest("1","2");
+		String rq=this.creRequest("1","2","2");
 		this.callAPI(rq, "/5");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -101,18 +102,18 @@ public class GetListAuctionByType {
 	}
 	
 	public void test6() {
-		System.out.println("Get list auctions by type test 6: Type: đã bán");
+		System.out.println("Get list auctions by type test 6: Type: Khác");
 		this.access_token="";
-		String rq=this.creRequest("1","0");
+		String rq=this.creRequest("1","0","5");
 		this.callAPI(rq, "/5");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 	}
 	public void test7() {
-		System.out.println("Get list auctions by type test 7: Type Id is not exist");
+		System.out.println("Get list auctions by type test 7: Type Id is null");
 		this.access_token="";
-		String rq=this.creRequest("2","1");
+		String rq=this.creRequest("2","1","");
 		this.callAPI(rq, "/10");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
