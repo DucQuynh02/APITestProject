@@ -3,6 +3,7 @@ package testmain;
 import java.util.Scanner;
 
 import autotest.Constant;
+import autotest.CreatItem;
 import autotest.CreateAuctionsTest;
 import autotest.CreateBidsTest;
 import autotest.CreateComment;
@@ -315,8 +316,17 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==12) {	
 			System.out.println("12: Create Item ");
-
-
+			CreatItem crtIt = new CreatItem();
+			crtIt.CreatItem1();
+			crtIt.CreatItem2();
+			crtIt.CreatItem3();
+			crtIt.CreatItem4();
+			crtIt.CreatItem5();
+			crtIt.CreatItem6();
+			crtIt.CreatItem7();
+			crtIt.CreatItem8();
+			crtIt.CreatItem9();
+	
 			
 		}
 		else if(luachonAPI==13) {
