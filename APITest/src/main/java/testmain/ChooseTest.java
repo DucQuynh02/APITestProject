@@ -1120,12 +1120,12 @@ public class ChooseTest {
 			System.out.println("0: All unit test ");
 			System.out.println("1: Search test 1: correct data");
 			System.out.println("2: Search test 2: type null");
-			System.out.println("2: Search test 3: key null");
-			System.out.println("2: Search test 4: tim kiem theo gia khoi diem");
-			System.out.println("2: Search test 5: tim kiem theo thoi gian bat dau cua phien dau gia");
-			System.out.println("2: Search test 6: tim kiem theo thoi gian ket thuc cua phien dau gia");
-			System.out.println("2: Search test 7: tim kiem theo ten cua phien dau gia");
-			System.out.println("2: Search test 8: khong tim thay ket qua");
+			System.out.println("3: Search test 3: key null");
+			System.out.println("4: Search test 4: tim kiem theo gia khoi diem");
+			System.out.println("5: Search test 5: tim kiem theo thoi gian bat dau cua phien dau gia");
+			System.out.println("6: Search test 6: tim kiem theo thoi gian ket thuc cua phien dau gia");
+			System.out.println("7: Search test 7: tim kiem theo ten cua phien dau gia");
+			System.out.println("8: Search test 8: khong tim thay ket qua");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			Search search = new Search();
