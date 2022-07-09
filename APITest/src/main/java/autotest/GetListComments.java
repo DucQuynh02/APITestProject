@@ -42,7 +42,7 @@ public class GetListComments {
                         .contentType("application/json")
                         .body(request)
                         .when()
-                        .get("comments/" + auctionsID);
+                        .get("api/comments/" + auctionsID);
 
         JSONObject rep = new JSONObject(response.getBody().asString());
         this.codeResponse = rep.get("code").toString();
@@ -52,7 +52,7 @@ public class GetListComments {
     public void LC1() {
         System.out.println("Get list comments test 1: Correct data");
         String rq= this.creRequest("1","3");
-        this.callAPI(rq,"/1");
+        this.callAPI(rq,"1");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
@@ -62,7 +62,7 @@ public class GetListComments {
     public void LC2() {
         System.out.println("Get list comments test 2: index null");
         String rq = this.creRequest("2", "");
-        this.callAPI(rq, "/2");
+        this.callAPI(rq, "2");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
@@ -73,7 +73,7 @@ public class GetListComments {
     public void LC3() {
         System.out.println("Get list auctions by status test 3: count null");
         String rq = this.creRequest("1", "2");
-        this.callAPI(rq, "/3");
+        this.callAPI(rq, "3");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");

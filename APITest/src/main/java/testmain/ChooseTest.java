@@ -28,8 +28,11 @@ import autotest.GetListComments;
 import autotest.GetNews;
 import autotest.GetDetailAuction;
 import autotest.AcceptMaxBid;
-
-
+import autotest.SignUp;
+import autotest.ListAuctionByUser;
+import autotest.GetListCategoires;
+import autotest.GetListLikes;
+import autotest.ReadNotifications;
 
 public class ChooseTest {
 	public void menuTest() {
@@ -84,6 +87,96 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==2) {	
 			System.out.println("2: Sign Up");
+			System.out.println("API: SignUp");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: SignUp test 1: The All is incorrect ");
+			System.out.println("2: SignUp test 2: The email is more than 255 characters");
+			System.out.println("3: SignUp test 3: The email even null ");
+			System.out.println("4: SignUp test 4: The phone is more than 60 characters ");
+			System.out.println("5: SignUp test 5: The phone even null");
+			System.out.println("6: SignUp test 6: The address is more than 255 characters");
+			System.out.println("7: SignUp test 7: The phone is not enter");
+			System.out.println("8: SignUp test 8: The name is more than 255 characters");
+			System.out.println("9: SignUp test 9: The name is not enter");
+			System.out.println("10: SignUp test 10: The name even null ");
+			System.out.println("11: SignUp test 11: The password even null");
+			System.out.println("12: SignUp test 12: The password is more than 255 characters");
+			System.out.println("13: SignUp test 13: The repassword even null");
+			System.out.println("14: SignUp test 14: The repassword is diffirent from password");
+			System.out.println("15: SignUp test 15: The repassword is more than 255 characters");
+			System.out.println("16: SignUp test 16: The email is exist");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			SignUp sg= new SignUp();
+			if(luachonTest==0) {
+			sg.SigUp1();
+			sg.SigUp2();
+			sg.SigUp3();
+			sg.SigUp4();
+			sg.SigUp5();
+			sg.SigUp6();
+			sg.SigUp7();
+			sg.SigUp8();
+			sg.SigUp9();
+			sg.SigUp10();
+			sg.SigUp11();
+			sg.SigUp12();
+			sg.SigUp13();
+			sg.SigUp14();
+			sg.SigUp15();
+			sg.SigUp16();
+			}
+			else if(luachonTest==1) {
+				sg.SigUp1();
+				}
+			else if(luachonTest==2) {
+				sg.SigUp2();
+				}
+			else if(luachonTest==3) {
+				sg.SigUp3();
+				}
+			else if(luachonTest==4) {
+				sg.SigUp4();
+				}
+			else if(luachonTest==5) {
+				sg.SigUp5();
+				}
+			else if(luachonTest==6) {
+				sg.SigUp6();
+				}
+			else if(luachonTest==7) {
+				sg.SigUp7();
+				}
+			else if(luachonTest==8) {
+				sg.SigUp8();
+				}
+			else if(luachonTest==9) {
+				sg.SigUp9();
+				}
+			else if(luachonTest==10) {
+				sg.SigUp10();
+				}
+			else if(luachonTest==11) {
+				sg.SigUp11();
+				}
+			else if(luachonTest==12) {
+				sg.SigUp12();
+				}
+			else if(luachonTest==13) {
+				sg.SigUp13();
+				}
+			else if(luachonTest==14) {
+				sg.SigUp14();
+				}
+			else if(luachonTest==15) {
+				sg.SigUp15();
+				}
+			else if(luachonTest==16) {
+				sg.SigUp16();
+				}
+			
+		}
 		}
 		else if(luachonAPI==3) {
 			System.out.println("3: Edit Account");
@@ -201,7 +294,40 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==7) {
 			System.out.println("7: Get List Auctions By User");
-
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: List auctions by user test 1: correct data ");
+			System.out.println("2: List auctions by user test 2: random StatusID");
+			System.out.println("3: List auctions by user test 3: not Logged");
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			ListAuctionByUser lau = new ListAuctionByUser();
+			if(luachonTest==0) {
+			lau.ListAuctionByUser1();
+			lau.ListAuctionByUser2();
+			lau.ListAuctionByUser3();
+			}
+			else if(luachonTest==1) {
+				test.Test1();
+				}
+			else if(luachonTest==2) {
+				test.Test2();
+				}
+			else if(luachonTest==3) {
+				test.Test3();
+				}
+			else if(luachonTest==4) {
+				test.Test4();
+				}
+			else if(luachonTest==5) {
+				test.Test5();
+				}
+			else if(luachonTest==6) {
+				test.Test6();
+				}
+			else if(luachonTest==7) {
+				test.Test7();
+				}
 		}
 		else if(luachonAPI==8) {
 			System.out.println("8: Get List Auctions By Type");
@@ -434,7 +560,18 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==17) {
 			System.out.println("17: Get List CateGoires");
-			
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: List auctions test 1: create success ");
+			GetListCategoires glc = new GetListCategoires();
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+				if(luachonTest==0) {
+				glc.GetListCategoires1();
+			}
+				if(luachonTest==1) {
+				glc.GetListCategoires1();
+			}
 		}
 		else if(luachonAPI==18) {
 			System.out.println("18: Get List Brands");
@@ -519,7 +656,29 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==22) {	
 			System.out.println("22: Get List Likes");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Get List Likes test 1: Correct data");
+			System.out.println("2: Get List Likes test 2: Logout");
+			System.out.println("3: Get List Likes test 3: not logged in");
+			GetListLikes gll = new GetListLikes();
+			luachonTest = sc.nextInt();
+			sc.nextLine();
 			
+			if(luachonTest==0) {
+				gll.GetListLikes1();
+				gll.GetListLikes2();
+				gll.GetListLikes3();	
+			}
+			else if(luachonTest==1) {
+				gll.GetListLikes1();
+				}
+			else if(luachonTest==2) {
+				gll.GetListLikes2();
+				}
+			else if(luachonTest==3) {
+				gll.GetListLikes3();
+				}
 		}
 		else if(luachonAPI==23) {
 			System.out.println("23: Total Likes Of Auction");
@@ -582,8 +741,24 @@ public class ChooseTest {
 		}
 		else if(luachonAPI==27) {
 			System.out.println("27: Read Notifications");
+			System.out.println("----------Mời chọn Test Case :----------");
+			System.out.println("0: All unit test ");
+			System.out.println("1: Read Notifications 1: Correct data");
+			System.out.println("2: Read Notifications 2: not logged in");
 			
-			
+			ReadNotifications rn = new ReadNotifications();
+			luachonTest = sc.nextInt();
+			sc.nextLine();
+			if(luachonTest==0) {
+				rn.ReadNotifications1();
+				rn.ReadNotifications2(); 
+			}
+			else if(luachonTest==1) {
+				rn.ReadNotifications1();
+				}
+			else if(luachonTest==2) {
+				rn.ReadNotifications2(); 
+				}		
 		}
 		else if(luachonAPI==28) {
 			System.out.println("28: Get Slider");

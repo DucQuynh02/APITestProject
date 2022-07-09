@@ -2,14 +2,19 @@
 package autotest;
 
 import static io.restassured.RestAssured.*;
+
+import java.util.Random;
+
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
+
+import autotest.SignUp.RandomPhone;
  
-public class GetListLikes {
+public class ListAuctionByUser {
 	private String access_token;
 	private String codeResponse;
 	private String messageResponse;
@@ -42,7 +47,7 @@ public class GetListLikes {
 					.contentType("application/json")
 					.body(request)
 				.when()
-					.get("api/likes" + statusID);
+					.get("api/auctions/listAuctionsByUser/" + statusID);
 		
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
@@ -50,11 +55,46 @@ public class GetListLikes {
 		this.dataResponse = rep.get("data").toString();
 	}
 
-	public void GetListLikes1() {
-		System.out.println("Get list Likes test 1: Correct data");
-		String rq= this.creRequest("1","3");
-		getAccessToken("chu175@gmail.com", "1234");
-		this.callAPI(rq,"/2");
+	
+	public class Randomso {
+		public String getSaltString() {
+			String SALTCHARS = "123456";
+			StringBuilder salt = new StringBuilder();
+			Random rnd = new Random();
+			while (salt.length() < 10) { // length of the random string.
+				int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+				salt.append(SALTCHARS.charAt(index));
+			}
+			String saltStr = salt.toString();
+			return saltStr;
+		}
+
+		public String getStringWithFixedLength(int n) {
+			// chose a Character random from this String
+			String AlphaNumericString =  "123456" ;
+
+			// create StringBuffer size of AlphaNumericString
+			StringBuilder sb = new StringBuilder(n);
+
+			for (int i = 0; i < n; i++) {
+				// generate a random number between
+				// 0 to AlphaNumericString variable length
+				int index = (int) (AlphaNumericString.length() * Math.random());
+
+				// add Character one by one in end of sb
+				sb.append(AlphaNumericString.charAt(index));
+			}
+			return sb.toString();
+		}
+
+	}
+	Randomso ID = new Randomso();
+	 
+	public void ListAuctionByUser1() {
+		System.out.println("ListAuctionByUser test 1 : Correct data ");
+		getAccessToken("anhquan582001@gmail.com", "123456");
+		String rq= this.creRequest("1","2");
+		this.callAPI(rq,"2");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -62,12 +102,12 @@ public class GetListLikes {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void GetListLikes2() {
-		System.out.println("Get list Likes test 2: Logout ");
-		String rq=this.creRequest("","2");
-		this.access_token="";
-		this.callAPI(rq, "/1");
+	public void ListAuctionByUser2() {
+		System.out.println("List AuctionByUser test 2 : random StatusID");
 		getAccessToken("chu1756@gmail.com","1234");
+		 String statusid = ID.getStringWithFixedLength(1);
+		String rq=this.creRequest("2",statusid);
+		this.callAPI(rq, "1");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -75,13 +115,15 @@ public class GetListLikes {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void GetListLikes3() {
-		System.out.println("Get list Likes test 3: Not logged");
-		String rq=this.creRequest("1","");
+
+	
+	public void ListAuctionByUser3() {
+		System.out.println("ListAuctionByUser test 3: Not logged , code should be 1004 ");
+		String rq=this.creRequest("","1");
 		this.access_token="";
-		this.callAPI(rq, "/4");
+		this.callAPI(rq, "4");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
