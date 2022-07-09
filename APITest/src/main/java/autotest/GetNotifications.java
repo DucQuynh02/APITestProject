@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 
 import org.json.JSONObject;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class GetNotifications {
@@ -48,7 +49,31 @@ public class GetNotifications {
 			this.messageResponse = rep.get("message").toString();
 			this.dataResponse = rep.get("data").toString();
 		}
-		
+		public void callAPInotlogin(String request) {
+			baseURI = Constant.BaseURL;
+			Response firstResponse = RestAssured
+					.given()
+						.header("Authorization", "Bearer" + this.access_token)
+						.contentType("application/json")
+						.body(request.toString())
+			            .redirects().follow(false)
+			        .expect().statusCode(302)
+					.when()
+						.get("api/notifications");
+			String redirectUrl = firstResponse.getHeader("Location");
+			Response response = RestAssured
+			        .given()
+			        	.header("Authorization", "Bearer" + this.access_token)
+			        	.contentType("application/json")
+			        .when().
+			            get(redirectUrl);
+			
+			
+			JSONObject rep = new JSONObject(response.getBody().asString());
+			this.codeResponse = rep.get("code").toString();
+			this.messageResponse = rep.get("message").toString();
+			this.dataResponse = rep.get("data").toString();
+		}
 		public void getNoti1() {
 			System.out.println("Get Notifications 1: Not login");
 			String rq= this.creRequest("1","2","");

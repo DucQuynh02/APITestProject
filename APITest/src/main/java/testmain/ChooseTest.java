@@ -333,7 +333,7 @@ public class ChooseTest {
 			System.out.println("3: Get list coments test 3: count null");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
-			get_list_comment lc = new get_list_comment();
+			GetListComments lc = new GetListComments();
 			if(luachonTest==0) {
 			lc.LC1();
 			lc.LC2();
@@ -346,54 +346,8 @@ public class ChooseTest {
 				lc.LC2();
 				}
 			else if(luachonTest==3) {
-				lc.Lc3();
+				lc.LC3();
 				}
-			
-		}
-		else if(luachonAPI==6) {
-			System.out.println("API: Get List Auctions by Status ");
-			System.out.println("----------Mời chọn Test Case :----------");
-			System.out.println("0: All unit test ");
-			System.out.println("1: Get list auctions by status test 1: Correct data ");
-			System.out.println("2: Get list auctions by status test 2: index null");
-			System.out.println("3: Get list auctions by status test 3: count null");
-			System.out.println("4: Get list auctions by status test 4: Log in");
-			System.out.println("5: Get list auctions by status test 5: Outdate token");
-			System.out.println("6: Get list auctions by status test 6: Status: đã bán");
-			System.out.println("7: Get list auctions by status test 7: Status Id is not exist");
-			luachonTest = sc.nextInt();
-			sc.nextLine();
-			ListAuctionStatusTest las = new ListAuctionStatusTest();
-			if(luachonTest==0) {
-				las.LAS1();
-				las.LAS2();
-				las.LAS3();
-				las.LAS4();
-				las.LAS5();
-				las.LAS6();
-				las.LAS7();
-			}
-			else if(luachonTest==1) {
-				las.LAS1();
-				}
-			else if(luachonTest==2) {
-				las.LAS2();
-				}
-			else if(luachonTest==3) {
-				las.LAS3();
-				}
-			else if(luachonTest==4) {
-				las.LAS4();
-				}
-			else if(luachonTest==5) {
-				las.LAS5();
-				}
-			else if(luachonTest==6) {
-				las.LAS6();
-				}
-			else if(luachonTest==7) {
-				las.LAS7();
-				}		
 			
 			
 		}
@@ -488,7 +442,7 @@ public class ChooseTest {
 			System.out.println("5: Accepe Max Bid test 5: chua co tra gia nao");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
-			AcceptMaxBidTest amb = new AcceptMaxBidTest();
+			AcceptMaxBid amb = new AcceptMaxBid();
 			if(luachonTest==0) {
 			amb.AMB1();
 			amb.AMB2();
