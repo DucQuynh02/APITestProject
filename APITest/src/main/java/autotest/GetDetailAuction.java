@@ -65,7 +65,7 @@ public class GetDetailAuction {
     }
     public void DA3() {
         System.out.println("Get detail auctions test 3:Da ket thuc ");
-        this.callAPI("/3")
+        this.callAPI("/3");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
@@ -73,7 +73,7 @@ public class GetDetailAuction {
     }
     public void DA4() {
         System.out.println("Get detail auctions test 4: Dang cho phe duyet");
-        this.callAPI("/4")
+        this.callAPI("/4");
         System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
         if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
             System.out.println("Finished! Satisfied!");
