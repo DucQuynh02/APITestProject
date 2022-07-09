@@ -333,7 +333,7 @@ public class ChooseTest {
 			System.out.println("3: Get list coments test 3: count null");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
-			get_list_comment lc = new get_list_comment();
+			GetListComments lc = new GetListComments();
 			if(luachonTest==0) {
 			lc.LC1();
 			lc.LC2();
@@ -488,7 +488,7 @@ public class ChooseTest {
 			System.out.println("5: Accepe Max Bid test 5: chua co tra gia nao");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
-			AcceptMaxBidTest amb = new AcceptMaxBidTest();
+			AcceptMaxBid amb = new AcceptMaxBid();
 			if(luachonTest==0) {
 			amb.AMB1();
 			amb.AMB2();
