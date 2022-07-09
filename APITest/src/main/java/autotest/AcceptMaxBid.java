@@ -10,12 +10,12 @@ import io.restassured.response.Response;
 public class AcceptMaxBid {
 
     private String access_token;
-    private int codeResponse;
+    private String codeResponse;
     private String messageResponse;
     private String dataResponse;
 
     public void getAccessToken(String email, String password) {
-        baseURI = Constant.BASEURI;
+        baseURI = Constant.BaseURL;
 
         LoginTest login = new LoginTest();
         String currentAccount = login.creRequest(email, password);
@@ -32,7 +32,7 @@ public class AcceptMaxBid {
     }
 
     public void callAPI(String request, String auctionID) {
-        baseURI = Constant.BASEURI;
+        baseURI = Constant.BaseURL;
 
         Response response =
                 given()
@@ -43,8 +43,60 @@ public class AcceptMaxBid {
                         .post("api/accept" + auctionID);
 
         JSONObject rep = new JSONObject(response.getBody().asString());
-        this.codeResponse = Integer.parseInt(rep.get("code").toString());
+        this.codeResponse = rep.get("code").toString();
         this.messageResponse = rep.get("message").toString();
         this.dataResponse = rep.get("data").toString();
+    }
+
+    public void AMB1() {
+        System.out.println("Accept max bid test 1: Chua dang nhap");
+        String rq = this.creRequest("");
+        this.callAPI(rq, "/1");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void AMB2() {
+        System.out.println("Accept max bid test 2: khong co quyen");
+        this.getAccessToken("ndh@gmail.com", "111");
+        String rq = this.creRequest("");
+        this.callAPI(rq, "/2");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1006") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void AMB3() {
+        System.out.println("Accept max bid test 3: phien dau gia chua ket thuc");
+        this.getAccessToken("ndh@gmail.com", "111");
+        String rq = this.creRequest("");
+        this.callAPI(rq, "/3");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1009") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void AMB4() {
+        System.out.println("Accept max bid test 4: Da ban");
+        String rq = this.creRequest("");
+        this.callAPI(rq, "/4");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1010") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
+    }
+
+    public void AMB5() {
+        System.out.println("Accept max bid test 4: chua co tra gia nao");
+        String rq = this.creRequest("");
+        this.callAPI(rq, "/5");
+        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
+        if (this.codeResponse.equals("1011") && !this.messageResponse.equals(""))
+            System.out.println("Finished! Satisfied!");
+        else System.out.println("Fail");
     }
 }
