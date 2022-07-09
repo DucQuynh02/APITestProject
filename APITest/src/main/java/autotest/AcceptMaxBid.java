@@ -50,6 +50,7 @@ public class AcceptMaxBid {
 
     public void AMB1() {
         System.out.println("Accept max bid test 1: Chua dang nhap");
+        this.access_token = "";
         String rq = this.creRequest("");
         this.callAPI(rq, "/1");
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
@@ -80,25 +81,4 @@ public class AcceptMaxBid {
         else System.out.println("Fail");
     }
 
-    public void AMB4() {
-        System.out.println("Accept max bid test 4: Da ban");
-        this.getAccessToken("vdq118@gmail.com", "vdq118");
-        String rq = this.creRequest("");
-        this.callAPI(rq, "/4");
-        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
-        if (this.codeResponse.equals("1010") && !this.messageResponse.equals(""))
-            System.out.println("Finished! Satisfied!");
-        else System.out.println("Fail");
-    }
-
-    public void AMB5() {
-        System.out.println("Accept max bid test 4: chua co tra gia nao");
-        this.getAccessToken("vdq118@gmail.com", "vdq118");
-        String rq = this.creRequest("");
-        this.callAPI(rq, "/5");
-        System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
-        if (this.codeResponse.equals("1011") && !this.messageResponse.equals(""))
-            System.out.println("Finished! Satisfied!");
-        else System.out.println("Fail");
-    }
 }
