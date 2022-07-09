@@ -84,7 +84,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -101,7 +101,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -118,7 +118,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -135,7 +135,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -152,7 +152,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -169,7 +169,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -186,7 +186,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -203,7 +203,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -220,7 +220,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -237,7 +237,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -254,7 +254,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -271,7 +271,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -288,7 +288,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -305,7 +305,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -322,7 +322,7 @@ public class EditAccount {
         );
 		this.callAPI(rq);
 		System.out.println("Code: "+codeResponse+"    Message: "+messageResponse+"    Data:"+dataResponse);
-		if(codeResponse.equals("1000") && !messageResponse.equals(""))
+		if(codeResponse.equals("1001") && !messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
