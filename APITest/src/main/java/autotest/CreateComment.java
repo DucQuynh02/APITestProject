@@ -44,7 +44,6 @@ public class CreateComment {
 					.body(request)
 				.when()
 					.post("api/comments/create" + auctionID);
-		System.out.println(response.asString());
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
@@ -83,7 +82,7 @@ public class CreateComment {
 		String rq= this.creRequest("ye","6");
 		this.callAPI(rq,"/417");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
-		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 	}
@@ -91,7 +90,7 @@ public class CreateComment {
 	public void test2() {
 		System.out.println("Get Create comment test 2: content null");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
-		String rq=this.creRequest("hello","");
+		String rq=this.creRequest("","6");
 		this.callAPI(rq, "/497");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
@@ -102,7 +101,7 @@ public class CreateComment {
 	public void test3() {
 		System.out.println("Get Create comment test 3: comment_last_id null");
 		this.getAccessToken("vdq118@gmail.com", "vdq118");
-		String rq=this.creRequest("","6");
+		String rq=this.creRequest("hello","");
 		this.callAPI(rq, "/497");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))

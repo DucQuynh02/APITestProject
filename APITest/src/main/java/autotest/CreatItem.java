@@ -57,7 +57,7 @@ public class CreatItem {
 		this.dataResponse = rep.get("data").toString();
 	}
 	
-	public void callAPInotlogin(String request, String auctionId) {
+	public void callAPInotlogin(String request, String auctionID) {
 		baseURI = Constant.BaseURL;
 		Response firstResponse = RestAssured
 				.given()
@@ -67,7 +67,7 @@ public class CreatItem {
 		            .redirects().follow(false)
 		        .expect().statusCode(302)
 				.when()
-					.post("api/items/create" + auctionId);
+					.post("api/items/create" + auctionID);
 		String redirectUrl = firstResponse.getHeader("Location");
 		Response response = RestAssured
 		        .given()
@@ -76,7 +76,7 @@ public class CreatItem {
 		        .when().
 		            post(redirectUrl);
 		
-		
+		System.out.println(response.asString());
 		JSONObject rep = new JSONObject(response.getBody().asString());
 		this.codeResponse = rep.get("code").toString();
 		this.messageResponse = rep.get("message").toString();
@@ -182,7 +182,7 @@ public class CreatItem {
 		System.out.println("CreatItem test 9: Not login");
 		String rq= this.creRequest("anh","2","1","1","1321245","");
 		this.access_token="";
-		this.callAPInotlogin(rq,"/651");
+		this.callAPI(rq,"/651");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");

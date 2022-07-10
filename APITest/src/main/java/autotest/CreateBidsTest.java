@@ -33,7 +33,7 @@ public class CreateBidsTest {
 
 		public void callAPI(String request,String auctionId) {
 			baseURI = Constant.BaseURL;
-			
+			System.out.println(request+"   auctionId:"+auctionId);
 			Response response = 
 					given()
 						.header("Authorization", "Bearer" + this.access_token)

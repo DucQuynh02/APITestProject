@@ -116,10 +116,10 @@ public class EditAuction {
 	}
 	
 	public void EditAuction4() {
-		System.out.println("Edit Auction test 4: Edit all fields");
+		System.out.println("Edit Auction test 4: Edit Start date");
 		getAccessToken("vdq118@gmail.com", "vdq118");
-		String rq= this.creRequest("6","2022/07/10","2022/08/11","Dau gia 651");
-		this.callAPI(rq,"/651");
+		String rq= this.creRequest("","2022/07/14","","");
+		this.callAPI(rq,"/654");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
@@ -128,9 +128,45 @@ public class EditAuction {
 	}
 	
 	public void EditAuction5() {
-		System.out.println("Edit Auction test 5: Edit trùng title ");
+		System.out.println("Edit Auction test 5: Edit End date");
 		getAccessToken("vdq118@gmail.com", "vdq118");
-		String rq= this.creRequest("7","2022/07/10","2022/08/22","Dau gia 651");
+		String rq= this.creRequest("","","2022/08/22","");
+		this.callAPI(rq,"/654");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction6() {
+		System.out.println("Edit Auction test 6: Edit title");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("","","","Dau gia 651");
+		this.callAPI(rq,"/654");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction7() {
+		System.out.println("Edit Auction test 7: Edit all fields");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("6","2022/07/14","2022/08/11","Dau gia 651");
+		this.callAPI(rq,"/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+	public void EditAuction8() {
+		System.out.println("Edit Auction test 8: Edit trùng title ");
+		getAccessToken("vdq118@gmail.com", "vdq118");
+		String rq= this.creRequest("7","2022/07/14","2022/08/22","Dau gia 651");
 		this.callAPI(rq,"/654");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1001") && !this.messageResponse.equals(""))
@@ -139,8 +175,8 @@ public class EditAuction {
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
 	
-	public void EditAuction6() {
-		System.out.println("Edit Auction test 5: Không đăng nhập ");
+	public void EditAuction9() {
+		System.out.println("Edit Auction test 9: Không đăng nhập ");
 		this.access_token="";
 		String rq= this.creRequest("7","2022/07/10","2022/08/22","Dau gia 651");
 		this.callAPInotlogin(rq,"/654");
@@ -150,4 +186,18 @@ public class EditAuction {
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
 	}
+	
+	public void EditAuction10() {
+		System.out.println("Edit Auction test 10: Tài khoản không có quyền");
+		getAccessToken("chu175@gmail.com", "1234");
+		String rq= this.creRequest("6","2022/07/14","2022/08/11","Dau gia 651");
+		this.callAPI(rq,"/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1006") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	
+
 }

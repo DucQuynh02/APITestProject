@@ -92,7 +92,7 @@ public class Search {
     public void Search5() {
         System.out.println("Search test 5:tim kiem theo thoi gian bat dau cua phien dau gia");
         this.access_token = "";
-        String rq = this.creRequest("2", "12h");
+        String rq = this.creRequest("2", "12:00");
         this.callAPI(rq);
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -102,7 +102,7 @@ public class Search {
     public void Search6() {
         System.out.println("Search test 6:tim kiem theo thoi gian ket thuc cua phien dau gia");
         this.access_token = "";
-        String rq = this.creRequest("3", "12h");
+        String rq = this.creRequest("3", "12:00");
         this.callAPI(rq);
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -112,7 +112,7 @@ public class Search {
     public void Search7() {
         System.out.println("Search test 7:tim kiem theo ten cua phien dau gia");
         this.access_token = "";
-        String rq = this.creRequest("4", "alo");
+        String rq = this.creRequest("4", "Đấu giá 651");
         this.callAPI(rq);
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
@@ -122,7 +122,7 @@ public class Search {
     public void Search8() {
         System.out.println("Search test 8:khong thay ket qua");
         this.access_token = "";
-        String rq = this.creRequest("1", "12h");
+        String rq = this.creRequest("1", "12hsscsaaceew");
         this.callAPI(rq);
         System.out.println("Code: " + this.codeResponse + "    Message: " + this.messageResponse + "    Data:" + this.dataResponse);
         if (this.codeResponse.equals("9998") && !this.messageResponse.equals(""))

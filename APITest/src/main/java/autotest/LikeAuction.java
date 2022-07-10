@@ -105,8 +105,18 @@ public class LikeAuction {
 	}
 	
 	public void likeAuction4() {
+		this.getAccessToken("chu175@gmail.com", "1234");
+		System.out.println("Like auctions test 4: Auction like");
+		this.callAPI("/651");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void likeAuction5() {
 		
-		System.out.println("Like auctions test 4: Logout");
+		System.out.println("Like auctions test 5: Logout");
 		getAccessToken("vdq118@gmail.com", "vdq118");
 		LogoutTest logout = new LogoutTest();
 		logout.callAPI(this.access_token);

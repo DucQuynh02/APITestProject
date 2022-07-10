@@ -63,6 +63,7 @@ public class ChooseTest {
 			lgt.Login5();
 			lgt.Login6();
 			lgt.Login7();
+		
 			}
 			else if(luachonTest==1) {
 				lgt.Login1();
@@ -539,9 +540,14 @@ public class ChooseTest {
 			System.out.println("1: Edit Auction test 1: Auction đã duyệt ");
 			System.out.println("2: Edit Auction test 2: Auction đã duyệt, Đăng xuất");
 			System.out.println("3: Edit Auction test 3: Edit Category id");
-			System.out.println("4: Edit Auction test 4: Edit all fields");
-			System.out.println("5: Edit Auction test 5: Edit trùng title ");
-
+			System.out.println("4: Edit Auction test 4: Edit Start date");
+			System.out.println("5: Edit Auction test 5: Edit End date");
+			System.out.println("6: Edit Auction test 6: Edit title ");
+			System.out.println("7: Edit Auction test 7: Edit all fields");
+			System.out.println("8: Edit Auction test 8: Edit trùng title ");
+			System.out.println("9: Edit Auction test 9: Không đăng nhập ");
+			System.out.println("10: Edit Auction test 10: Tài khoản không có quyền ");
+			
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			EditAuction editAuc = new EditAuction();
@@ -552,6 +558,11 @@ public class ChooseTest {
 				editAuc.EditAuction4();
 				editAuc.EditAuction5();
 				editAuc.EditAuction6();
+				editAuc.EditAuction7();
+				editAuc.EditAuction8();
+				editAuc.EditAuction9();
+				editAuc.EditAuction10();
+				
 			}
 			else if(luachonTest==1) {
 				editAuc.EditAuction1();
@@ -570,6 +581,18 @@ public class ChooseTest {
 				}
 			else if(luachonTest==6) {
 				editAuc.EditAuction6();
+				}
+			else if(luachonTest==7) {
+				editAuc.EditAuction7();
+				}
+			else if(luachonTest==8) {
+				editAuc.EditAuction8();
+				}
+			else if(luachonTest==9) {
+				editAuc.EditAuction9();
+				}
+			else if(luachonTest==10) {
+				editAuc.EditAuction10();
 				}
 			
 		}
@@ -599,6 +622,7 @@ public class ChooseTest {
 				crtIt.CreatItem6();
 				crtIt.CreatItem7();
 				crtIt.CreatItem8();
+	
 				
 			}
 			else if(luachonTest==1) {
@@ -899,7 +923,8 @@ public class ChooseTest {
 			System.out.println("1: Like auctions test 1: Correct data");
 			System.out.println("2: Like auctions test 2: Auction chưa duyệt");
 			System.out.println("3: Like auctions test 3: Không đăng nhập");
-
+			System.out.println("4: Like auctions test 4: Auction like");
+			System.out.println("5: Like auctions test 5: Logout");
 
 			LikeAuction likeAuc = new LikeAuction();
 			
@@ -912,7 +937,7 @@ public class ChooseTest {
 				likeAuc.likeAuction2();
 				likeAuc.likeAuction3();
 				likeAuc.likeAuction4();
-				
+				likeAuc.likeAuction5();
 			}
 			else if(luachonTest==1) {
 				likeAuc.likeAuction1();
@@ -925,6 +950,9 @@ public class ChooseTest {
 				}
 			else if(luachonTest==4) {
 				likeAuc.likeAuction4();
+				}
+			else if(luachonTest==5) {
+				likeAuc.likeAuction5();
 				}
 
 			
@@ -989,6 +1017,7 @@ public class ChooseTest {
 			System.out.println("1: Get News test 1: correct data ");
 			System.out.println("2: Get News test 2: index null");
 			System.out.println("3: Get News test 3: count null");
+			System.out.println("3: Get News test 4: not login");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			GetNews getNews = new GetNews();
@@ -1006,6 +1035,9 @@ public class ChooseTest {
 			}
 			else if(luachonTest==3) {
 				getNews.GetNews3();
+			}
+			else if(luachonTest==4) {
+				getNews.GetNews4();
 			}
 		}
 		else if(luachonAPI==25) {

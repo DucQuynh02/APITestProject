@@ -74,7 +74,7 @@ public class AcceptMaxBid {
 		this.dataResponse = rep.get("data").toString();
 	}
     public void AMB1() {
-        System.out.println("Accept max bid test 1: Chua dang nhap");
+        System.out.println("Accept max bid test 1: Chưa đăng nhập");
         this.access_token = "";
         String rq = this.creRequest("abc");
         this.callAPInotlogin(rq, "/497");
@@ -85,7 +85,7 @@ public class AcceptMaxBid {
     }
 
     public void AMB2() {
-        System.out.println("Accept max bid test 2: khong co quyen");
+        System.out.println("Accept max bid test 2: Không có quyền");
         this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("");
         this.callAPI(rq, "/497");
@@ -96,7 +96,7 @@ public class AcceptMaxBid {
     }
 
     public void AMB3() {
-        System.out.println("Accept max bid test 3: phien dau gia chua ket thuc");
+        System.out.println("Accept max bid test 3: Phiên đấu giá chưa kết thúc");
         this.getAccessToken("vdq118@gmail.com", "vdq118");
         String rq = this.creRequest("");
         this.callAPI(rq, "/654");
