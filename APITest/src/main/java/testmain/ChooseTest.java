@@ -381,7 +381,9 @@ public class ChooseTest {
 			System.out.println("0: All unit test ");
 			System.out.println("1: List auctions by user test 1: correct data ");
 			System.out.println("2: List auctions by user test 2: random StatusID");
-			System.out.println("3: List auctions by user test 3: not Logged");
+			System.out.println("3: List auctions by user test 3: not Log in");
+			System.out.println("4: List auctions by user test 4: Status Id = 0 ");
+			System.out.println("5: List auctions by user test 5: Status Id âm ");
 			luachonTest = sc.nextInt();
 			sc.nextLine();
 			ListAuctionByUser lau = new ListAuctionByUser();
@@ -389,6 +391,8 @@ public class ChooseTest {
 			lau.ListAuctionByUser1();
 			lau.ListAuctionByUser2();
 			lau.ListAuctionByUser3();
+			lau.ListAuctionByUser4();
+			lau.ListAuctionByUser5();
 			}
 			else if(luachonTest==1) {
 				lau.ListAuctionByUser1();
@@ -398,6 +402,12 @@ public class ChooseTest {
 				}
 			else if(luachonTest==3) {
 				lau.ListAuctionByUser3();
+				}
+			else if(luachonTest==4) {
+				lau.ListAuctionByUser4();
+				}
+			else if(luachonTest==5) {
+				lau.ListAuctionByUser5();
 				}
 
 		}

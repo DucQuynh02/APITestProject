@@ -108,7 +108,7 @@ public class ListAuctionStatusTest {
 	public void LAS6() {
 		System.out.println("Get list auctions by status test 6: Status: đã bán");
 		this.access_token="";
-		String rq=this.creRequest("1","0");
+		String rq=this.creRequest("1","4");
 		this.callAPI(rq, "/6");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))

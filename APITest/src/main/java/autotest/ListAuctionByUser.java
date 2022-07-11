@@ -118,12 +118,34 @@ public class ListAuctionByUser {
 
 	
 	public void ListAuctionByUser3() {
-		System.out.println("ListAuctionByUser test 3: Not logged , code should be 1004 ");
+		System.out.println("ListAuctionByUser test 3: Not log in , code should be 1004 ");
 		String rq=this.creRequest("","1");
 		this.access_token="";
 		this.callAPI(rq, "4");
 		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
 		if(this.codeResponse.equals("1004") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void ListAuctionByUser4() {
+		System.out.println("ListAuctionByUser test 4: Status Id = 0 ");
+		String rq=this.creRequest("","1");
+		getAccessToken("vdq118@gmail.com","vdq118");
+		this.callAPI(rq, "0");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
+			System.out.println("Finished! Satisfied!");
+		else System.out.println("Fail");
+//        assert(rp.message != null && !"".equals(rp.message));
+	}
+	public void ListAuctionByUser5() {
+		System.out.println("ListAuctionByUser test 5: Status Id âm ");
+		String rq=this.creRequest("","1");
+		getAccessToken("vdq118@gmail.com","vdq118");
+		this.callAPI(rq, "-2");
+		System.out.println("Code: "+this.codeResponse+"    Message: "+this.messageResponse+"    Data:"+this.dataResponse);
+		if(this.codeResponse.equals("1000") && !this.messageResponse.equals(""))
 			System.out.println("Finished! Satisfied!");
 		else System.out.println("Fail");
 //        assert(rp.message != null && !"".equals(rp.message));
